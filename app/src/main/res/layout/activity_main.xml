@@ -2,54 +2,60 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/glVertical50"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/tvLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="39dp"
+        android:id="@+id/tvInicioSesion"
+        android:layout_width="197dp"
+        android:layout_height="51dp"
         android:layout_marginTop="72dp"
         android:text="Inicio de sesión"
-        android:textAlignment="center"
-        android:textSize="17sp"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tilEmail"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.62" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilEmail"
         android:layout_width="276dp"
         android:layout_height="53dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/glHorizontal50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLogin">
+        app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tfEmail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Usuario" />
+            android:hint="Usuario"
+            android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilContrasena"
         android:layout_width="274dp"
         android:layout_height="54dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilEmail">
+        app:layout_constraintTop_toTopOf="@+id/glHorizontal50">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tfcontrasena"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Contraseña" />
+            android:hint="Contraseña"
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.Guideline
@@ -68,27 +74,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFraseRegistro" />
-
-    <TextView
-        android:id="@+id/tvFraseRegistro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="40dp"
-        android:text="¿Aún no estás registrado?"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilContrasena" />
 
     <TextView
-        android:id="@+id/tvRegistro"
+        android:id="@+id/tvCrearCuenta"
+        android:layout_width="81dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="24dp"
+        android:text="Crear cuenta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btAcceder" />
+
+    <TextView
+        android:id="@+id/tvO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Crear cuenta"
-        app:layout_constraintBottom_toBottomOf="@+id/tvFraseRegistro"
-        app:layout_constraintStart_toEndOf="@+id/tvFraseRegistro"
-        app:layout_constraintTop_toTopOf="@+id/tvFraseRegistro"
-        app:layout_constraintVertical_bias="0.0" />
+        android:text="o"
+        app:layout_constraintBottom_toTopOf="@+id/tvCrearCuenta"
+        app:layout_constraintEnd_toEndOf="@+id/tvCrearCuenta"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="@+id/tvCrearCuenta"
+        app:layout_constraintTop_toBottomOf="@+id/btAcceder"
+        app:layout_constraintVertical_bias="0.333" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glHorizontal50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.500684" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
