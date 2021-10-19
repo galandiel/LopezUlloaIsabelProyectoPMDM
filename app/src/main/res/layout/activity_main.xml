@@ -8,20 +8,6 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvInicioSesion"
-        android:layout_width="197dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="72dp"
-        android:text="Inicio de sesión"
-        android:gravity="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tilEmail"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilEmail"
         android:layout_width="276dp"
