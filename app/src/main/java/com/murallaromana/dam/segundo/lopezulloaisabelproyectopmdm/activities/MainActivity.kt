@@ -1,4 +1,4 @@
-package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm
+package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
