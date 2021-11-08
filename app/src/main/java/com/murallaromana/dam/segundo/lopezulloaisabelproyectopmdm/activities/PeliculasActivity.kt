@@ -1,5 +1,6 @@
 package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,6 +30,11 @@ class PeliculasActivity : AppCompatActivity() {
         //Asocio el RecyclerView con sus componentes
         binding.rvListaPeliculas.adapter = adapter
         binding.rvListaPeliculas.layoutManager = layoutManager
+
+        binding.fabAnadirPelicula.setOnClickListener {
+            val intent = Intent (this, DetalleActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

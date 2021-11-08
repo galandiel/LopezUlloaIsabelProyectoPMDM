@@ -1,6 +1,5 @@
 package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.adapters
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -21,7 +20,7 @@ class ListaPeliculasAdapter(val peliculas: List<Pelicula>, val context: Context)
         val tvTitle = itemView.findViewById<TextView>(R.id.tvTitle)
         val tvMark = itemView.findViewById<TextView>(R.id.tvMark)
         val ivImage = itemView.findViewById<ImageView>(R.id.ivImage)
-        val liPelicula = itemView.findViewById<CardView>(R.id.liPelicula)
+        val layoutPelicula = itemView.findViewById<CardView>(R.id.layoutPelicula)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PeliculasViewHolder {
@@ -37,8 +36,10 @@ class ListaPeliculasAdapter(val peliculas: List<Pelicula>, val context: Context)
         holder.tvTitle.setText(pelicula.title)
         holder.tvMark.setText((pelicula.mark).toString())
         Picasso.get().load(pelicula.image).into(holder.ivImage)
-        holder.liPelicula.setOnClickListener {
+        holder.layoutPelicula.setOnClickListener {
             val intent = Intent (context, DetalleActivity::class.java)
+            // intent.putExtra("título", pelicula.title)
+            intent.putExtra("pelicula", pelicula)
             context.startActivity(intent)
         }
     }

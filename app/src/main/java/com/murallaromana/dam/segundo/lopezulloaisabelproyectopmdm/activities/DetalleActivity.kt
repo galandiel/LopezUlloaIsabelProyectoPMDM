@@ -5,12 +5,17 @@ import androidx.appcompat.app.AppCompatActivity
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityDetalleBinding
 
 class DetalleActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityDetalleBinding
 
+    private lateinit var binding : ActivityDetalleBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetalleBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val infoPelicula = intent.extras?.get("pelicula")
+
+
+
     }
 }

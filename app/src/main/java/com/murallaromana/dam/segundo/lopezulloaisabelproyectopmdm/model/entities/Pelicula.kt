@@ -1,5 +1,7 @@
 package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities
 
+import java.io.Serializable
+
 class Pelicula(
     var id: Int,
     var title: String,
@@ -15,4 +17,4 @@ class Pelicula(
     var synopsis: String,
     var mark: Double,
     var image: String
-)
+): Serializable
