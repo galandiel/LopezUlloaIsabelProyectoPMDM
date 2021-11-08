@@ -1,0 +1,48 @@
+package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.adapters
+
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.RecyclerView
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities.DetalleActivity
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
+import com.squareup.picasso.Picasso
+
+class ListaPeliculasAdapter(val peliculas: List<Pelicula>, val context: Context) : RecyclerView.Adapter<ListaPeliculasAdapter.PeliculasViewHolder>() {
+
+    class PeliculasViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
+        val tvTitle = itemView.findViewById<TextView>(R.id.tvTitle)
+        val tvMark = itemView.findViewById<TextView>(R.id.tvMark)
+        val ivImage = itemView.findViewById<ImageView>(R.id.ivImage)
+        val liPelicula = itemView.findViewById<CardView>(R.id.liPelicula)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PeliculasViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_pelicula, parent, false)
+
+        return PeliculasViewHolder(layoutInflater)
+    }
+
+    override fun onBindViewHolder(holder: PeliculasViewHolder, position: Int) {
+        val pelicula = peliculas.get(position)
+
+        holder.tvTitle.setText(pelicula.title)
+        holder.tvMark.setText((pelicula.mark).toString())
+        Picasso.get().load(pelicula.image).into(holder.ivImage)
+        holder.liPelicula.setOnClickListener {
+            val intent = Intent (context, DetalleActivity::class.java)
+            context.startActivity(intent)
+        }
+    }
+
+    override fun getItemCount() = peliculas.size
+
+}
