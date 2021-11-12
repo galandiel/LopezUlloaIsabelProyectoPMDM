@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:paddingHorizontal="@dimen/margen_activity_default_horizontal"
+    android:paddingVertical="@dimen/margen_activity_default_vertical"
     tools:context="activities.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout

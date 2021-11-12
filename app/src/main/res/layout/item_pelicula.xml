@@ -5,6 +5,8 @@
     android:id="@+id/layoutPelicula"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/margen_activity_default_horizontal"
+    android:paddingVertical="@dimen/margen_activity_default_vertical"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout

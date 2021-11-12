@@ -11,12 +11,15 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities.DetalleActivity
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityDetalleBinding
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ItemPeliculaBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
 import com.squareup.picasso.Picasso
 
 class ListaPeliculasAdapter(val peliculas: List<Pelicula>, val context: Context) : RecyclerView.Adapter<ListaPeliculasAdapter.PeliculasViewHolder>() {
 
-    class PeliculasViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
+    class PeliculasViewHolder(private val itemBinding: ItemPeliculaBinding) :RecyclerView.ViewHolder(itemBinding.root){
+
         val tvTitle = itemView.findViewById<TextView>(R.id.tvTitle)
         val tvMark = itemView.findViewById<TextView>(R.id.tvMark)
         val ivImage = itemView.findViewById<ImageView>(R.id.ivImage)
@@ -24,6 +27,7 @@ class ListaPeliculasAdapter(val peliculas: List<Pelicula>, val context: Context)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PeliculasViewHolder {
+
         val layoutInflater = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_pelicula, parent, false)
 
