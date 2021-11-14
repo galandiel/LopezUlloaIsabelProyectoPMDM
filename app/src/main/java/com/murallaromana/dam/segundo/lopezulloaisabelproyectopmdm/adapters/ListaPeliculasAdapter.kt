@@ -18,7 +18,7 @@ import com.squareup.picasso.Picasso
 
 class ListaPeliculasAdapter(val peliculas: List<Pelicula>, val context: Context) : RecyclerView.Adapter<ListaPeliculasAdapter.PeliculasViewHolder>() {
 
-    class PeliculasViewHolder(private val itemBinding: ItemPeliculaBinding) :RecyclerView.ViewHolder(itemBinding.root){
+    class PeliculasViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
 
         val tvTitle = itemView.findViewById<TextView>(R.id.tvTitle)
         val tvMark = itemView.findViewById<TextView>(R.id.tvMark)
@@ -30,13 +30,11 @@ class ListaPeliculasAdapter(val peliculas: List<Pelicula>, val context: Context)
 
         val layoutInflater = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_pelicula, parent, false)
-
         return PeliculasViewHolder(layoutInflater)
     }
 
     override fun onBindViewHolder(holder: PeliculasViewHolder, position: Int) {
         val pelicula = peliculas.get(position)
-
         holder.tvTitle.setText(pelicula.title)
         holder.tvMark.setText((pelicula.mark).toString())
         Picasso.get().load(pelicula.image).into(holder.ivImage)
