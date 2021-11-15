@@ -32,7 +32,7 @@ class PeliculasActivity : AppCompatActivity() {
         binding.rvListaPeliculas.layoutManager = layoutManager
 
         binding.fabAnadirPelicula.setOnClickListener {
-            val intent = Intent (this, DetalleActivity::class.java)
+            val intent = Intent (this, AnadirActivity::class.java)
             startActivity(intent)
         }
 

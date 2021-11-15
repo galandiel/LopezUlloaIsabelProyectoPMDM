@@ -35,7 +35,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "de alguien que parece predecir cada uno de sus " +
                     "movimientos, alguien a quien sólo Cobb podrá descubrir.",
             8.0,
-            "https://pics.filmaffinity.com/inception-652954101-large.jpg"
+            "https://m.media-amazon.com/images/I/71SBgi0X2KL._SL1200_.jpg"
         ),
         Pelicula(
             0,
@@ -66,7 +66,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "enfrentan a una situación angustiosa que empeora a medida que el enemigo " +
                     "se acerca.",
             7.0,
-            "https://pics.filmaffinity.com/dunkirk-461720087-large.jpg"
+            "https://m.media-amazon.com/images/I/61jphewUR6L._AC_SL1111_.jpg"
         ),
         Pelicula(
             0,
@@ -94,7 +94,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "todas sus personalidades y la gente que le rodea, a medida que las paredes " +
                     "de sus compartimentos mentales se derrumban.",
             6.6,
-            "https://pics.filmaffinity.com/split-172094905-large.jpg"
+            "https://m.media-amazon.com/images/I/61aXJhiP1JL._AC_SY741_.jpg"
         ),
         Pelicula(
             0,
@@ -121,7 +121,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "esperanza a nuestro mundo, pero para completarlo necesitará la ayuda de " +
                     "Cleveland y de todos los vecinos",
             5.4,
-            "https://pics.filmaffinity.com/lady_in_the_water-395802861-large.jpg"
+            "https://http2.mlstatic.com/D_NQ_NP_926655-MLM27398161115_052018-O.jpg"
         )
     )
 }
