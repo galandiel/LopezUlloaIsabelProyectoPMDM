@@ -17,6 +17,7 @@ class DetalleActivity : AppCompatActivity() {
 
         val infoPelicula = intent.extras?.get("pelicula") as Pelicula
 
+        setTitle(infoPelicula.title)
         binding.tvDetalleTitulo.text = infoPelicula.title
         binding.tvDetalleAnno.text = infoPelicula.year.toString()
         binding.tvDetalleDuracion.text = infoPelicula.duration
