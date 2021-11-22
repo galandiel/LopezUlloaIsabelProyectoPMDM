@@ -15,8 +15,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilEmail"
         android:layout_width="276dp"
-        android:layout_height="53dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintBottom_toTopOf="@+id/glhLogin50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
@@ -26,15 +27,17 @@
             android:id="@+id/tfEmail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Usuario"
+            android:hint="@string/hint_usuario"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilContrasena"
         android:layout_width="274dp"
-        android:layout_height="54dp"
+        android:layout_height="60dp"
         android:layout_marginTop="20dp"
+        app:passwordToggleEnabled="true"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +47,7 @@
             android:id="@+id/tfcontrasena"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Contraseña"
+            android:hint="@string/hint_contrasena"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Acceder"
+        android:text="@string/boton_acceder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +74,7 @@
         android:layout_width="81dp"
         android:layout_height="21dp"
         android:layout_marginTop="24dp"
-        android:text="Crear cuenta"
+        android:text="@string/texto_crearCuenta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btAcceder" />
@@ -94,5 +97,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.500684" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="112dp"
+            android:layout_height="88dp"
+            android:src="@drawable/ic_gandalf_48"
+            app:layout_constraintBottom_toTopOf="@+id/tilEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

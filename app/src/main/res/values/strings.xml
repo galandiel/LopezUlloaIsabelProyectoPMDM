@@ -1,11 +1,15 @@
 <resources>
     <!-- Etiquetas -->
-    <string name="app_name">LopezUlloaIsabelProyectoPMDM</string>
+    <string name="app_name">FilmGoer</string>
 
     <!-- Hints -->
     <string name="hint_usuario">Usuario</string>
+    <string name="hint_contrasena">Contraseña</string>
 
     <!-- Acciones -->
+    <string name="boton_acceder">Acceder</string>
+    <string name="texto_crearCuenta"><u>Crear cuenta</u></string>
+    <string name="boton_crearCuenta">Crear cuenta</string>
 
     <!-- Nombres de pantallas -->
 

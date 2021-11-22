@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setTitle("Iniciar sesión")
+
         binding.btAcceder.setOnClickListener {
             val intent = Intent(this, PeliculasActivity::class.java)
             startActivity(intent)

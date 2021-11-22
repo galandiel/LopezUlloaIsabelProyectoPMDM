@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="@dimen/margen_activity_default_horizontal"
     android:paddingVertical="@dimen/margen_activity_default_vertical"
+    android:background="@color/primaryLightColor"
     tools:context=".activities.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -26,5 +27,6 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/primaryColor"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
