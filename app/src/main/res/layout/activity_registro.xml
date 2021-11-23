@@ -18,6 +18,7 @@
         android:layout_marginTop="50dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:startIconDrawable="@drawable/ic_baseline_person_24"
+        app:startIconTint="@color/primaryDarkColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -35,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margen_vertical_entre_edittexts"
         app:startIconDrawable="@drawable/ic_baseline_alternate_email_24"
+        app:startIconTint="@color/primaryDarkColor"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,8 +45,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:hint="Email" />
+            android:hint="Email"
+            android:inputType="textEmailAddress"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -53,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margen_vertical_entre_edittexts"
         app:startIconDrawable="@drawable/ic_baseline_phone_24"
+        app:startIconTint="@color/primaryDarkColor"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,8 +64,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType=""
-            android:hint="Teléfono" />
+            android:hint="Teléfono"
+            android:inputType="phone"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -70,7 +73,10 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/primaryDarkColor"
         app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        app:startIconTint="@color/primaryDarkColor"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +85,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Contraseña" />
+            android:hint="Contraseña"
+            android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -87,7 +94,10 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margen_vertical_entre_edittexts"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/primaryDarkColor"
         app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        app:startIconTint="@color/primaryDarkColor"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,7 +106,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Confirma contraseña" />
+            android:hint="Confirma contraseña"
+            android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

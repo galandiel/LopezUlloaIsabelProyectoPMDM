@@ -13,141 +13,154 @@
 
         <TextView
             android:id="@+id/tvDetalleMusica"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDetalleGuion"
             tools:text="Música" />
 
         <TextView
             android:id="@+id/tvDetalleSinopsis"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDetalleGenero"
             tools:text="Sinopsis" />
 
         <TextView
             android:id="@+id/tvDetalleGuion"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDetalleDirector"
+            app:layout_constraintTop_toTopOf="@+id/glhDetalle50"
             tools:text="Guión" />
 
         <TextView
             android:id="@+id/tvDetalleReparto"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDetalleFotografia"
             tools:text="Reparto" />
 
         <TextView
             android:id="@+id/tvDetalleGenero"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDetalleReparto"
             tools:text="Género" />
 
         <TextView
             android:id="@+id/tvDetalleFotografia"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDetalleMusica"
             tools:text="Fotografía" />
 
         <TextView
             android:id="@+id/tvDetalleAnno"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:text="TextView"
+            app:layout_constraintEnd_toStartOf="@+id/glvDetalle50"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Año" />
 
         <TextView
             android:id="@+id/tvDetalleDuracion"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="32dp"
             android:text="TextView"
+            app:layout_constraintEnd_toStartOf="@+id/glvDetalle50"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDetalleAnno"
             tools:text="Duración" />
 
         <TextView
             android:id="@+id/tvDetallePais"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="32dp"
             android:text="TextView"
+            app:layout_constraintEnd_toStartOf="@+id/glvDetalle50"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDetalleDuracion"
             tools:text="País" />
 
         <TextView
             android:id="@+id/tvDetalleDirector"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="32dp"
             android:text="TextView"
+            app:layout_constraintEnd_toStartOf="@+id/glvDetalle50"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDetallePais"
             tools:text="Director" />
 
         <ImageView
             android:id="@+id/ivDetalleImagen"
-            android:layout_width="168dp"
-            android:layout_height="216dp"
-            android:layout_marginTop="32dp"
+            android:layout_width="169dp"
+            android:layout_height="170dp"
+            android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/glvDetalle50"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
         <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/glvDetalle50"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+            android:id="@+id/glvDetalle50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
 
         <TextView
             android:id="@+id/tvDetalleNota"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="24dp"
             android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/glhDetalle50"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="@+id/glvDetalle50"
             app:layout_constraintTop_toBottomOf="@+id/ivDetalleImagen"
             tools:text="Nota" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glhDetalle50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

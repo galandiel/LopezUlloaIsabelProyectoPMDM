@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso
 class DetalleActivity : AppCompatActivity() {
 
     companion object {
-        lateinit var pelicula: Pelicula
+        lateinit var infoPelicula: Pelicula
     }
 
     private lateinit var binding : ActivityDetalleBinding
@@ -25,7 +25,7 @@ class DetalleActivity : AppCompatActivity() {
         binding = ActivityDetalleBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val infoPelicula = intent.extras?.get("pelicula") as Pelicula
+        infoPelicula = intent.extras?.get("pelicula") as Pelicula
 
         setTitle(infoPelicula.title)
         binding.tvDetalleAnno.text = infoPelicula.year.toString()

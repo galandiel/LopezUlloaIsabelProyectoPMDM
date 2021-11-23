@@ -7,7 +7,8 @@
     android:paddingHorizontal="@dimen/margen_activity_default_horizontal"
     android:paddingVertical="@dimen/margen_activity_default_vertical"
     android:background="@color/primaryLightColor"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.MainActivity"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvListaPeliculas"
