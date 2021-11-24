@@ -1,28 +1,30 @@
 package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.App
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.App.Companion.peliculas
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityAnadirBinding
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityDetalleBinding
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityEditarBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
-import com.squareup.picasso.Picasso
 
-class AnadirActivity : AppCompatActivity() {
+class EditarActivity : AppCompatActivity() {
 
-    lateinit var binding:ActivityAnadirBinding
+    companion object {
+        lateinit var infoPelicula: Pelicula
+    }
+
+    lateinit var binding: ActivityEditarBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAnadirBinding.inflate(layoutInflater)
+        binding = ActivityEditarBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -37,10 +39,9 @@ class AnadirActivity : AppCompatActivity() {
             val builder = AlertDialog.Builder(this)
             val dialog = builder.setTitle("Guardar película")
                 .setMessage("Estás a punto de guardar la película, ¿estás seguro?")
-                .setPositiveButton("Aceptar", {dialog, id ->
-                    val id = peliculas.size
-                    val titulo = binding.tietAnadirTitulo.text
-                    //peliculas.add(Pelicula(id, titulo,...))
+                .setPositiveButton("Aceptar", { dialog, id ->
+                    peliculas.remove(infoPelicula)
+
                     finish()
                 })
                 .setNegativeButton("Cancelar", null)

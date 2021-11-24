@@ -23,10 +23,11 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietAnadirTitulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Título"
-                android:inputType="text"/>
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -40,10 +41,11 @@
             app:layout_constraintTop_toBottomOf="@+id/tilAnadirTitulo">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietAnadirAnno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Año"
-                android:inputType="number"/>
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -57,10 +59,11 @@
             app:layout_constraintTop_toBottomOf="@+id/tilAnadirAnno">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietAnadirDuracion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Duración"
-                android:inputType="text"/>
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -74,10 +77,11 @@
             app:layout_constraintTop_toBottomOf="@+id/tilAnadirDuracion">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietAnadirPais"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="País"
-                android:inputType="text"/>
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -91,10 +95,11 @@
             app:layout_constraintTop_toBottomOf="@id/tilAnadirPais">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietAnadirDirector"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Director"
-                android:inputType="text"/>
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

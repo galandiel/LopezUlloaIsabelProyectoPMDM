@@ -2,11 +2,13 @@ package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.App.Companion.peliculas
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityDetalleBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
@@ -46,7 +48,6 @@ class DetalleActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_detalle_pelicula, menu)
-
         return true;
     }
 
@@ -63,6 +64,7 @@ class DetalleActivity : AppCompatActivity() {
             val dialog = builder.setTitle("Borrar película")
                 .setMessage("Estás a punto de eliminar la película, ¿estás seguro?")
                 .setPositiveButton("Aceptar", {dialog, id ->
+                    peliculas.remove(infoPelicula)
                     finish()
                 })
                 .setNegativeButton("Cancelar", null)

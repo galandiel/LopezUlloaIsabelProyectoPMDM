@@ -6,7 +6,7 @@ import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities
 
 class App : Application() {
     companion object {
-        var peliculas: List<Pelicula> = ArrayList()
+        var peliculas: ArrayList<Pelicula> = ArrayList()
     }
 
     override fun onCreate() {

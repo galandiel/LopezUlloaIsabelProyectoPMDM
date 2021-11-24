@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.App
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.adapters.ListaPeliculasAdapter
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityPeliculasBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.PeliculasDaoMockImpl
@@ -37,4 +38,13 @@ class PeliculasActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onResume() {
+        super.onResume()
+        val adapter = ListaPeliculasAdapter(App.peliculas, this)
+        binding.rvListaPeliculas.adapter = adapter
+        val layoutManager = LinearLayoutManager(this)
+        binding.rvListaPeliculas.layoutManager = layoutManager
+    }
+
 }
