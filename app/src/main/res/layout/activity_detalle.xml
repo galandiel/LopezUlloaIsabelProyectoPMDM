@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="@dimen/margen_activity_default_horizontal"
-    android:paddingVertical="@dimen/margen_activity_default_vertical">
+    android:paddingVertical="@dimen/margen_activity_default_vertical"
+    android:background="@color/primaryLightColor">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -22,23 +23,12 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/tvDetalleNota"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/glhDetalle50"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivDetalleImagen"
-            tools:text="Nota" />
-
-        <TextView
             android:id="@+id/tvLabelAnno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="Año: "
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvDetalleAnno" />
 
@@ -49,6 +39,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/glvDetalle25"
             app:layout_constraintTop_toTopOf="@+id/glhDetalle50"
             tools:text="Año" />
@@ -59,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="Duración: "
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvDetalleDuracion" />
 
@@ -69,6 +61,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/glvDetalle25"
             app:layout_constraintTop_toBottomOf="@+id/tvDetalleAnno"
             tools:text="Duración" />
@@ -79,6 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="País: "
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvDetallePais" />
 
@@ -89,6 +83,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/glvDetalle25"
             app:layout_constraintTop_toBottomOf="@+id/tvDetalleDuracion"
             tools:text="País" />
@@ -99,6 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="Director: "
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvDetalleDirector" />
 
@@ -109,6 +105,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/glvDetalle25"
             app:layout_constraintTop_toBottomOf="@+id/tvDetallePais"
             tools:text="Director" />
@@ -119,6 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="Guión: "
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvDetalleGuion" />
 
@@ -129,6 +127,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/glvDetalle25"
             app:layout_constraintTop_toBottomOf="@+id/tvDetalleDirector"
             tools:text="Guión" />
@@ -139,6 +138,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="Música: "
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvDetalleMusica" />
 
@@ -149,6 +149,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/glvDetalle25"
             app:layout_constraintTop_toBottomOf="@+id/tvDetalleGuion"
             tools:text="Música" />
@@ -159,6 +160,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="Fotografía: "
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvDetalleFotografia" />
 
@@ -169,6 +171,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/glvDetalle25"
             app:layout_constraintTop_toBottomOf="@+id/tvDetalleMusica"
             tools:text="Fotografía" />
@@ -179,6 +182,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="Reparto: "
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvDetalleReparto" />
 
@@ -189,6 +193,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/glvDetalle25"
             app:layout_constraintTop_toBottomOf="@+id/tvDetalleFotografia"
             tools:text="Reparto" />
@@ -199,6 +204,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="Género: "
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvDetalleGenero" />
 
@@ -209,6 +215,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/glvDetalle25"
             app:layout_constraintTop_toBottomOf="@+id/tvDetalleReparto"
             tools:text="Género" />
@@ -219,6 +226,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="Sinopsis: "
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tvDetalleSinopsis" />
 
@@ -229,6 +237,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/glvDetalle25"
             app:layout_constraintTop_toBottomOf="@+id/tvDetalleGenero"
             tools:text="Sinopsis" />
@@ -246,6 +255,21 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.25" />
+
+        <RatingBar
+            android:id="@+id/ratingBarDetalle"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:progressTint="@color/primaryDarkColor"
+            android:secondaryProgressTint="@color/primaryDarkColor"
+            app:layout_constraintBottom_toTopOf="@+id/glhDetalle50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivDetalleImagen"
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

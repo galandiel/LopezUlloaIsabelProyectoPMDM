@@ -11,9 +11,7 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
         val dao = PeliculasDaoMockImpl()
-
         peliculas = dao.getAll()
     }
 

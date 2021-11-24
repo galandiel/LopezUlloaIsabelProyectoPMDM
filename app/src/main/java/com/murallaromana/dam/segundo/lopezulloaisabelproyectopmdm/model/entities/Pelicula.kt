@@ -2,19 +2,19 @@ package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entitie
 
 import java.io.Serializable
 
-class Pelicula(
+data class Pelicula(
     var id: Int,
-    var title: String,
-    var year: Long,
-    var duration: String,
-    var country: String,
+    var titulo: String,
+    var anno: String,
+    var duracion: String,
+    var pais: String,
     var director: String,
-    var script: String,
-    var music: String,
-    var photography: String,
-    var cast: String,
-    var genre: String,
-    var synopsis: String,
-    var mark: Double,
-    var image: String
-): Serializable
+    var guion: String,
+    var musica: String,
+    var fotografia: String,
+    var reparto: String,
+    var genero: String,
+    var sinopsis: String,
+    var nota: String,
+    var imagen: String
+) : Serializable

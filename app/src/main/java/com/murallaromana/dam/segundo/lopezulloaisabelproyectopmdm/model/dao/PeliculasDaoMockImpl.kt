@@ -13,7 +13,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                 Pelicula(
                     0,
                     "Inception",
-                    2010,
+                    "2010",
                     "148 min.",
                     "Estados Unidos",
                     "Christopher Nolan",
@@ -38,13 +38,13 @@ class PeliculasDaoMockImpl : PeliculasDao {
                             "embargo, su plan se complica debido a la intervención " +
                             "de alguien que parece predecir cada uno de sus " +
                             "movimientos, alguien a quien sólo Cobb podrá descubrir.",
-                    8.0,
+                    "8.0",
                     "https://m.media-amazon.com/images/I/71SBgi0X2KL._SL1200_.jpg"
                 ),
                 Pelicula(
                     0,
                     "Dunkirk",
-                    2017,
+                    "2017",
                     "107 min.",
                     "Reino Unido",
                     "Christopher Nolan",
@@ -69,13 +69,13 @@ class PeliculasDaoMockImpl : PeliculasDao {
                             "Atrapados en la playa, con el mar cortándoles el paso, las tropas se " +
                             "enfrentan a una situación angustiosa que empeora a medida que el enemigo " +
                             "se acerca.",
-                    7.0,
+                    "7.0",
                     "https://m.media-amazon.com/images/I/61jphewUR6L._AC_SL1111_.jpg"
                 ),
                 Pelicula(
                     0,
                     "Split",
-                    2016,
+                    "2016",
                     "116 min.",
                     "Estados Unidos",
                     "M.Night Shyamalan",
@@ -97,13 +97,13 @@ class PeliculasDaoMockImpl : PeliculasDao {
                             "observadora Casey (Anya Taylor-Joy), Kevin lucha por sobrevivir contra " +
                             "todas sus personalidades y la gente que le rodea, a medida que las paredes " +
                             "de sus compartimentos mentales se derrumban.",
-                    6.6,
+                    "6.5",
                     "https://m.media-amazon.com/images/I/61aXJhiP1JL._AC_SY741_.jpg"
                 ),
                 Pelicula(
                     0,
                     "Lady in the Water",
-                    2006,
+                    "2006",
                     "110 min.",
                     "Estados Unidos",
                     "M. Night Shyamalan",
@@ -124,7 +124,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                             "urbanización. La criatura está inmersa en un viaje que podría devolver la " +
                             "esperanza a nuestro mundo, pero para completarlo necesitará la ayuda de " +
                             "Cleveland y de todos los vecinos",
-                    5.4,
+                    "4",
                     "https://http2.mlstatic.com/D_NQ_NP_926655-MLM27398161115_052018-O.jpg"
                 )
             )

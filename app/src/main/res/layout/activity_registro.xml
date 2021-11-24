@@ -5,119 +5,125 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="@dimen/margen_activity_default_horizontal"
-    android:paddingVertical="@dimen/margen_activity_default_vertical">
+    android:paddingVertical="@dimen/margen_activity_default_vertical"
+    android:background="@color/primaryLightColor">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilNombre"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:startIconDrawable="@drawable/ic_baseline_person_24"
-        app:startIconTint="@color/primaryDarkColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilUsuario"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_usuario"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconDrawable="@drawable/ic_baseline_person_24"
+            app:startIconTint="@color/primaryDarkColor">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilUsuario"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margen_vertical_entre_edittexts"
-        app:startIconDrawable="@drawable/ic_baseline_alternate_email_24"
-        app:startIconTint="@color/primaryDarkColor"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilNombre">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_usuario"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="@dimen/margen_vertical_entre_edittexts"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilUsuario"
+            app:startIconDrawable="@drawable/ic_baseline_alternate_email_24"
+            app:startIconTint="@color/primaryDarkColor">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilEmailRegistro"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margen_vertical_entre_edittexts"
-        app:startIconDrawable="@drawable/ic_baseline_phone_24"
-        app:startIconTint="@color/primaryDarkColor"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilUsuario">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilTelefono"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Teléfono"
-            android:inputType="phone"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="@dimen/margen_vertical_entre_edittexts"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilEmail"
+            app:startIconDrawable="@drawable/ic_baseline_phone_24"
+            app:startIconTint="@color/primaryDarkColor">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilContrasenaRegistro"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@color/primaryDarkColor"
-        app:startIconDrawable="@drawable/ic_baseline_lock_24"
-        app:startIconTint="@color/primaryDarkColor"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilEmailRegistro">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Teléfono"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilContrasenaRegistro"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Contraseña"
-            android:inputType="textPassword"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilTelefono"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/primaryDarkColor"
+            app:startIconDrawable="@drawable/ic_baseline_lock_24"
+            app:startIconTint="@color/primaryDarkColor">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilValidarContrasena"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margen_vertical_entre_edittexts"
-        app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@color/primaryDarkColor"
-        app:startIconDrawable="@drawable/ic_baseline_lock_24"
-        app:startIconTint="@color/primaryDarkColor"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilContrasenaRegistro">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietContrasenaRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilValidarContrasena"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Confirma contraseña"
-            android:inputType="textPassword"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="@dimen/margen_vertical_entre_edittexts"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilContrasenaRegistro"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/primaryDarkColor"
+            app:startIconDrawable="@drawable/ic_baseline_lock_24"
+            app:startIconTint="@color/primaryDarkColor">
 
-    <Button
-        android:id="@+id/btCrearCuenta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="@string/boton_crearCuenta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilValidarContrasena" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietValidarContrasena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirma contraseña"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btCrearCuenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:text="@string/boton_crearCuenta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilValidarContrasena" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

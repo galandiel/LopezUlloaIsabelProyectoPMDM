@@ -6,11 +6,11 @@
         android:icon="@drawable/ic_baseline_done_24"
         android:orderInCategory="300"
         android:title="Guardar"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/accion_cancelar"
         android:icon="@drawable/ic_baseline_cancel_24"
         android:orderInCategory="300"
         android:title="Cancelar"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 </menu>

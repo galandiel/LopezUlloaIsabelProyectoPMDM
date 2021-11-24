@@ -33,7 +33,7 @@ class PeliculasActivity : AppCompatActivity() {
         binding.rvListaPeliculas.layoutManager = layoutManager
 
         binding.fabAnadirPelicula.setOnClickListener {
-            val intent = Intent (this, AnadirActivity::class.java)
+            val intent = Intent(this, AnadirActivity::class.java)
             startActivity(intent)
         }
 
@@ -43,8 +43,6 @@ class PeliculasActivity : AppCompatActivity() {
         super.onResume()
         val adapter = ListaPeliculasAdapter(App.peliculas, this)
         binding.rvListaPeliculas.adapter = adapter
-        val layoutManager = LinearLayoutManager(this)
-        binding.rvListaPeliculas.layoutManager = layoutManager
     }
 
 }

@@ -7,6 +7,7 @@
     android:layout_height="wrap_content"
     android:paddingHorizontal="@dimen/margen_activity_default_horizontal"
     android:paddingVertical="@dimen/margen_activity_default_vertical"
+    app:cardBackgroundColor="@color/cardColor"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,26 +36,10 @@
             android:text="TextView"
             android:textAlignment="textStart"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/glvitem80"
+            app:layout_constraintBottom_toTopOf="@+id/ratingBar"
             app:layout_constraintStart_toStartOf="@+id/glvitem20"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="titulo" />
-
-        <TextView
-            android:id="@+id/tvMark"
-            android:layout_width="53dp"
-            android:layout_height="25dp"
-            android:text="TextView"
-            android:textAlignment="center"
-            android:textColor="@color/primaryColor"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/glvitem80"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="nota" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/glvitem20"
@@ -63,12 +48,19 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.3" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/glvitem80"
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.8" />
+            android:layout_marginBottom="8dp"
+            android:numStars="5"
+            android:progressTint="@color/primaryDarkColor"
+            android:secondaryProgressTint="@color/primaryDarkColor"
+            android:stepSize="0.5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivImage" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

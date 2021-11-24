@@ -6,11 +6,11 @@
         android:icon="@drawable/ic_baseline_edit_24"
         android:orderInCategory="300"
         android:title="Editar"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/accion_borrar"
         android:icon="@drawable/ic_baseline_delete_24"
         android:orderInCategory="300"
         android:title="Eliminar"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 </menu>
