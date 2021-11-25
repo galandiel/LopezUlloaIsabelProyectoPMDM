@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FilmGoer</string>
+    <string name="anno">"Year: "</string>
+    <string name="duracion">"Duration: "</string>
+    <string name="pais">"Country: "</string>
+    <string name="director">"Director: "</string>
+    <string name="guion">"Script: "</string>
+    <string name="musica">"Music: "</string>
+    <string name="fotografia">"Photography: "</string>
+    <string name="reparto">Cast:</string>
+    <string name="genero">Genre:</string>
+    <string name="sinopsis">Synopsis:</string>
+    <string name="hint_usuario">User</string>
+    <string name="hint_contrasena">Password</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_telefono">Phone</string>
+    <string name="hint_confirmaContrasena">Confirm password</string>
+    <string name="hint_titulo">Title</string>
+    <string name="hint_anno">Year</string>
+    <string name="hint_duracion">Duration</string>
+    <string name="hint_pais">Country</string>
+    <string name="hint_director">Director</string>
+    <string name="hint_guion">Script</string>
+    <string name="hint_musica">Music</string>
+    <string name="hint_fotografia">Photography</string>
+    <string name="hint_reparto">Cast</string>
+    <string name="hint_genero">Genre</string>
+    <string name="hint_sinopsis">Synopsis</string>
+    <string name="hint_nota">Mark</string>
+    <string name="hint_imagen">Imagen url</string>
+    <string name="boton_acceder">Access</string>
+    <string name="texto_crearCuenta"><u>Sign up</u></string>
+    <string name="boton_crearCuenta">Sign up</string>
+    <string name="pantalla_registro">Sign up</string>
+    <string name="pantalla_peliculas">Films</string>
+    <string name="pantalla_anadir">New film</string>
+    <string name="pantalla_editar">Edit film</string>
+</resources>

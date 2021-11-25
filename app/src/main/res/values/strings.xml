@@ -1,10 +1,36 @@
 <resources>
     <!-- Etiquetas -->
     <string name="app_name">FilmGoer</string>
+    <string name="anno">Año: </string>
+    <string name="duracion">Duración: </string>
+    <string name="pais">País: </string>
+    <string name="director">Director: </string>
+    <string name="guion">Guión: </string>
+    <string name="musica">Música: </string>
+    <string name="fotografia">Fotografía: </string>
+    <string name="reparto">Reparto: </string>
+    <string name="genero">Género: </string>
+    <string name="sinopsis">Sinopsis: </string>
 
     <!-- Hints -->
     <string name="hint_usuario">Usuario</string>
     <string name="hint_contrasena">Contraseña</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_telefono">Teléfono</string>
+    <string name="hint_confirmaContrasena">Confirma contrasena</string>
+    <string name="hint_titulo">Título</string>
+    <string name="hint_anno">Año</string>
+    <string name="hint_duracion">Duración</string>
+    <string name="hint_pais">País</string>
+    <string name="hint_director">Director</string>
+    <string name="hint_guion">Guión</string>
+    <string name="hint_musica">Música</string>
+    <string name="hint_fotografia">Fotografía</string>
+    <string name="hint_reparto">Reparto</string>
+    <string name="hint_genero">Género</string>
+    <string name="hint_sinopsis">Sinopsis</string>
+    <string name="hint_nota">Nota</string>
+    <string name="hint_imagen">Url de la imagen</string>
 
     <!-- Acciones -->
     <string name="boton_acceder">Acceder</string>
@@ -12,5 +38,9 @@
     <string name="boton_crearCuenta">Crear cuenta</string>
 
     <!-- Nombres de pantallas -->
+    <string name="pantalla_registro">Crear cuenta</string>
+    <string name="pantalla_peliculas">Películas</string>
+    <string name="pantalla_anadir">Nueva película</string>
+    <string name="pantalla_editar">Editar película</string>
 
 </resources>

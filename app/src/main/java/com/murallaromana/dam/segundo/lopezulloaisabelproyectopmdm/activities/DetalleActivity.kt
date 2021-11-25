@@ -48,10 +48,6 @@ class DetalleActivity : AppCompatActivity() {
         binding.ratingBarDetalle.rating = nota
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_detalle_pelicula, menu)
         return true
@@ -62,7 +58,6 @@ class DetalleActivity : AppCompatActivity() {
             val intent = Intent(this, EditarActivity::class.java)
             intent.putExtra("pelicula", infoPelicula)
             startActivity(intent)
-            Toast.makeText(this, "Editar película", Toast.LENGTH_SHORT).show()
             return true
         } else if (item.itemId == R.id.accion_borrar) {
             val builder = AlertDialog.Builder(this)
@@ -75,9 +70,7 @@ class DetalleActivity : AppCompatActivity() {
                 })
                 .setNegativeButton("Cancelar", null)
                 .create()
-
             dialog.show()
-
             return true
         } else {
             return super.onOptionsItemSelected(item)

@@ -15,17 +15,16 @@
         <activity
             android:name=".activities.EditarActivity"
             android:exported="true"
-            android:label="Editar película"
-            android:screenOrientation="portrait"/>
+            android:label="@string/pantalla_editar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.AnadirActivity"
             android:exported="true"
-            android:label="Añadir película"
+            android:label="@string/pantalla_anadir"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.DetalleActivity"
             android:exported="true"
-            android:label="Pelicula"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -34,7 +33,7 @@
         <activity
             android:name=".activities.PeliculasActivity"
             android:exported="true"
-            android:label="Peliculas"
+            android:label="@string/pantalla_peliculas"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -43,7 +42,7 @@
         <activity
             android:name=".activities.RegistroActivity"
             android:exported="true"
-            android:label="Crear cuenta"
+            android:label="@string/pantalla_registro"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

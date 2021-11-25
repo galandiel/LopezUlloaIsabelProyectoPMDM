@@ -18,7 +18,7 @@ class RegistroActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btCrearCuenta.setOnClickListener {
-            val backLogin = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             if (TextUtils.equals(binding.tietUsuario.text.toString().trim(), "") ||
                 TextUtils.equals(binding.tietEmail.text.toString().trim(), "") ||
                 TextUtils.equals(binding.tietTelefono.text.toString().trim(), "") ||
@@ -40,7 +40,7 @@ class RegistroActivity : AppCompatActivity() {
                     editor.putString("email", binding.tietEmail.text.toString())
                     editor.putString("contrasena", binding.tietContrasenaRegistro.text.toString())
                     editor.apply()
-                    startActivity(backLogin)
+                    startActivity(intent)
                 } else {
                     Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT)
                         .show()

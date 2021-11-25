@@ -1,5 +1,6 @@
 package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -29,7 +30,6 @@ class EditarActivity : AppCompatActivity() {
 
         infoPelicula = intent.extras?.get("pelicula") as Pelicula
 
-        setTitle("Editar película")
         binding.tietAnadirTitulo.setText(infoPelicula.titulo)
         binding.tietAnadirAnno.setText(infoPelicula.anno)
         binding.tietAnadirDuracion.setText(infoPelicula.duracion)
@@ -90,7 +90,8 @@ class EditarActivity : AppCompatActivity() {
                         )
                     )
                     Toast.makeText(this, "Película guardada", Toast.LENGTH_SHORT).show()
-                    finish()
+                    val intent = Intent(this, PeliculasActivity::class.java)
+                    startActivity(intent)
                 })
                 .setNegativeButton("Cancelar", null)
                 .create()

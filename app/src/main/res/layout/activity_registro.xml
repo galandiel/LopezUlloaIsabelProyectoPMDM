@@ -48,7 +48,7 @@
                 android:id="@+id/tietEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email"
+                android:hint="@string/hint_email"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,7 +68,7 @@
                 android:id="@+id/tietTelefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Teléfono"
+                android:hint="@string/hint_telefono"
                 android:inputType="phone" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,7 +90,7 @@
                 android:id="@+id/tietContrasenaRegistro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Contraseña"
+                android:hint="@string/hint_contrasena"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,7 +112,7 @@
                 android:id="@+id/tietValidarContrasena"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Confirma contraseña"
+                android:hint="@string/hint_confirmaContrasena"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FilmGoer</string>
+    <string name="anno">Ano:</string>
+    <string name="duracion">Duración:</string>
+    <string name="pais">País:</string>
+    <string name="director">Director:</string>
+    <string name="guion">Guión:</string>
+    <string name="musica">Música:</string>
+    <string name="fotografia">Fotografía:</string>
+    <string name="reparto">Elenco:</string>
+    <string name="genero">Xénero:</string>
+    <string name="sinopsis">Argumento:</string>
+    <string name="hint_usuario">Usuario</string>
+    <string name="hint_contrasena">Contrasinal</string>
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_telefono">Teléfono</string>
+    <string name="hint_confirmaContrasena">Confirma o contrasinal</string>
+    <string name="hint_titulo">Título</string>
+    <string name="hint_anno">Ano</string>
+    <string name="hint_duracion">Duración</string>
+    <string name="hint_pais">País</string>
+    <string name="hint_director">Director</string>
+    <string name="hint_guion">Guión</string>
+    <string name="hint_musica">Música</string>
+    <string name="hint_fotografia">Fotografía</string>
+    <string name="hint_reparto">Elenco</string>
+    <string name="hint_genero">Xénero</string>
+    <string name="hint_sinopsis">Argumento</string>
+    <string name="hint_nota">Nota</string>
+    <string name="hint_imagen">Url da imaxe</string>
+    <string name="boton_acceder">Acceder</string>
+    <string name="texto_crearCuenta"><u>Crear conta</u></string>
+    <string name="boton_crearCuenta">Crear conta</string>
+    <string name="pantalla_registro">Crear conta</string>
+    <string name="pantalla_peliculas">Filmes</string>
+    <string name="pantalla_anadir">Novo filme</string>
+    <string name="pantalla_editar">Editar filme</string>
+</resources>

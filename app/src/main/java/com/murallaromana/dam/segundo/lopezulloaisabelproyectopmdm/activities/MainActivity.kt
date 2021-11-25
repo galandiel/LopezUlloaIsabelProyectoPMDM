@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val sharedPref = getSharedPreferences("datos", MODE_PRIVATE)
-        val email = sharedPref.getString("email", "ejemplo@ejemplo.com")
+        val email = sharedPref.getString("email", "nombre@dominio.com")
         val contrasena = sharedPref.getString("contrasena", "")
         binding.tietEmail.setText(email?.trim())
 
@@ -32,11 +32,8 @@ class MainActivity : AppCompatActivity() {
             if (binding.tietEmail.text.toString().equals("")) {
                 Toast.makeText(this, "Introduce un email", Toast.LENGTH_SHORT).show()
             } else if (binding.tietContrasena.text.toString().equals("")) {
-                Toast.makeText(this, "Introduce una contraseñal", Toast.LENGTH_SHORT).show()
-            } else if (TextUtils.equals(
-                    binding.tietContrasena.text.toString().trim(),
-                    contrasena
-                )
+                Toast.makeText(this, "Introduce una contraseña", Toast.LENGTH_SHORT).show()
+            } else if (TextUtils.equals(binding.tietContrasena.text.toString().trim(), contrasena)
             ) {
                 startActivity(intent)
             } else {

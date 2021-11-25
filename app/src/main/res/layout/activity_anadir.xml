@@ -27,7 +27,7 @@
                 android:id="@+id/tietAnadirTitulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Título"
+                android:hint="@string/hint_titulo"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -45,7 +45,7 @@
                 android:id="@+id/tietAnadirAnno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Año"
+                android:hint="@string/hint_anno"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,7 +63,7 @@
                 android:id="@+id/tietAnadirDuracion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Duración"
+                android:hint="@string/hint_duracion"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -81,7 +81,7 @@
                 android:id="@+id/tietAnadirPais"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="País"
+                android:hint="@string/hint_pais"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,7 +99,7 @@
                 android:id="@+id/tietAnadirDirector"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Director"
+                android:hint="@string/hint_director"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -117,7 +117,7 @@
                 android:id="@+id/tietAnadirGuion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Guión"
+                android:hint="@string/hint_guion"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -135,7 +135,7 @@
                 android:id="@+id/tietAnadirMusica"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Música"
+                android:hint="@string/hint_musica"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -153,7 +153,7 @@
                 android:id="@+id/tietAnadirFotografia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Fotografía"
+                android:hint="@string/hint_fotografia"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -171,7 +171,7 @@
                 android:id="@+id/tietAnadirReparto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Reparto"
+                android:hint="@string/hint_reparto"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -189,7 +189,7 @@
                 android:id="@+id/tietAnadirGenero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Género"
+                android:hint="@string/hint_genero"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -207,7 +207,7 @@
                 android:id="@+id/tietAnadirSinopsis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Sinopsis"
+                android:hint="@string/hint_sinopsis"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -225,7 +225,7 @@
                 android:id="@+id/tietAnadirNota"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nota"
+                android:hint="@string/hint_nota"
                 android:inputType="numberDecimal" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -243,7 +243,7 @@
                 android:id="@+id/tietAnadirImagen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Imagen"
+                android:hint="@string/hint_imagen"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

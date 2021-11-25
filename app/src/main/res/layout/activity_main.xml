@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primaryLightColor"
     android:paddingHorizontal="@dimen/margen_activity_default_horizontal"
     android:paddingVertical="@dimen/margen_activity_default_vertical"
-    android:background="@color/primaryLightColor"
     tools:context="activities.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,7 +28,7 @@
                 android:id="@+id/tietEmail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/hint_usuario"
+                android:hint="@string/hint_email"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
