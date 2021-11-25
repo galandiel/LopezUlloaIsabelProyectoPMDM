@@ -246,5 +246,24 @@
                 android:hint="@string/hint_imagen"
                 android:inputType="textMultiLine" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilAnadirTrailer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/componente_til_ancho"
+            android:layout_height="@dimen/componente_til_alto"
+            android:layout_marginTop="@dimen/margen_vertical_entre_edittexts"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilAnadirImagen">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietAnadirTrailer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_imagen"
+                android:inputType="textMultiLine" />
+        </com.google.android.material.textfield.TextInputLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

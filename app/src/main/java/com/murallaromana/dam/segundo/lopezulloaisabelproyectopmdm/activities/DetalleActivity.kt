@@ -2,9 +2,13 @@ package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.PopupWindow
 import android.widget.Toast
+import android.widget.VideoView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.App.Companion.peliculas
@@ -12,6 +16,9 @@ import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityDetalleBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
 import com.squareup.picasso.Picasso
+import android.net.Uri
+import android.provider.MediaStore
+
 
 class DetalleActivity : AppCompatActivity() {
 
@@ -44,6 +51,21 @@ class DetalleActivity : AppCompatActivity() {
 
         val nota = infoPelicula.nota.toFloat()/2
         binding.ratingBarDetalle.rating = nota
+
+        binding.fabPlay.setOnClickListener {
+            val ventana = PopupWindow(this)
+            val vista = layoutInflater.inflate(R.layout.layout_video, null)
+            ventana.contentView = vista
+            val video = vista.findViewById<VideoView>(R.id.vvTrailer)
+            val ruta = infoPelicula.trailer
+            val uri: Uri = Uri.parse(ruta)
+            video.setVideoURI(uri)
+            video.start()
+            ventana.showAtLocation(vista, Gravity.CENTER, 0, 0)
+            video.setOnClickListener {
+                ventana.dismiss()
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

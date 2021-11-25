@@ -43,7 +43,8 @@ class AnadirActivity : AppCompatActivity() {
                 TextUtils.equals(binding.tietAnadirGenero.text.toString().trim(), "") ||
                 TextUtils.equals(binding.tietAnadirSinopsis.text.toString().trim(), "") ||
                 TextUtils.equals(binding.tietAnadirNota.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietAnadirImagen.text.toString().trim(), "")
+                TextUtils.equals(binding.tietAnadirImagen.text.toString().trim(), "") ||
+                TextUtils.equals(binding.tietAnadirTrailer.text.toString().trim(), "")
             ) {
                 Toast.makeText(this, "Hay campos vacíos", Toast.LENGTH_SHORT).show()
             } else {
@@ -65,6 +66,7 @@ class AnadirActivity : AppCompatActivity() {
                         val sinopsis = binding.tietAnadirSinopsis.text.toString()
                         val nota = binding.tietAnadirNota.text.toString()
                         val imagen = binding.tietAnadirImagen.text.toString()
+                        val trailer = binding.tietAnadirTrailer.text.toString()
                         peliculas.add(
                             Pelicula(
                                 id,
@@ -80,7 +82,8 @@ class AnadirActivity : AppCompatActivity() {
                                 genero,
                                 sinopsis,
                                 nota,
-                                imagen
+                                imagen,
+                                trailer
                             )
                         )
                         Toast.makeText(this, "Película guardada", Toast.LENGTH_SHORT).show()

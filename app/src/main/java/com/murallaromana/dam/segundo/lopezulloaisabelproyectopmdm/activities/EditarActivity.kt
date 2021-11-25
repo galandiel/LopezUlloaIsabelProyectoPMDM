@@ -42,6 +42,7 @@ class EditarActivity : AppCompatActivity() {
         binding.tietAnadirSinopsis.setText(infoPelicula.sinopsis)
         binding.tietAnadirNota.setText(infoPelicula.nota)
         binding.tietAnadirImagen.setText(infoPelicula.imagen)
+        binding.tietAnadirTrailer.setText(infoPelicula.trailer)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -70,6 +71,7 @@ class EditarActivity : AppCompatActivity() {
                     val sinopsis = binding.tietAnadirSinopsis.text.toString()
                     val nota = binding.tietAnadirNota.text.toString()
                     val imagen = binding.tietAnadirImagen.text.toString()
+                    val trailer = binding.tietAnadirTrailer.text.toString()
                     peliculas.add(
                         Pelicula(
                             id,
@@ -85,7 +87,8 @@ class EditarActivity : AppCompatActivity() {
                             genero,
                             sinopsis,
                             nota,
-                            imagen
+                            imagen,
+                            trailer
                         )
                     )
                     Toast.makeText(this, "Película guardada", Toast.LENGTH_SHORT).show()

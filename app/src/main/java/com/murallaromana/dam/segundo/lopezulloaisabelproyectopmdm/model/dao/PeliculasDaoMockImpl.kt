@@ -39,7 +39,8 @@ class PeliculasDaoMockImpl : PeliculasDao {
                             "de alguien que parece predecir cada uno de sus " +
                             "movimientos, alguien a quien sólo Cobb podrá descubrir.",
                     "8.0",
-                    "https://m.media-amazon.com/images/I/71SBgi0X2KL._SL1200_.jpg"
+                    "https://m.media-amazon.com/images/I/71SBgi0X2KL._SL1200_.jpg",
+                    "https://www.youtube.com/watch?v=YoHD9XEInc0"
                 ),
                 Pelicula(
                     0,
@@ -70,7 +71,8 @@ class PeliculasDaoMockImpl : PeliculasDao {
                             "enfrentan a una situación angustiosa que empeora a medida que el enemigo " +
                             "se acerca.",
                     "7.0",
-                    "https://m.media-amazon.com/images/I/61jphewUR6L._AC_SL1111_.jpg"
+                    "https://m.media-amazon.com/images/I/61jphewUR6L._AC_SL1111_.jpg",
+                    "https://www.youtube.com/watch?v=F-eMt3SrfFU"
                 ),
                 Pelicula(
                     0,
@@ -98,7 +100,8 @@ class PeliculasDaoMockImpl : PeliculasDao {
                             "todas sus personalidades y la gente que le rodea, a medida que las paredes " +
                             "de sus compartimentos mentales se derrumban.",
                     "6.5",
-                    "https://m.media-amazon.com/images/I/61aXJhiP1JL._AC_SY741_.jpg"
+                    "https://m.media-amazon.com/images/I/61aXJhiP1JL._AC_SY741_.jpg",
+                    "https://www.youtube.com/watch?v=84TouqfIsiI"
                 ),
                 Pelicula(
                     0,
@@ -125,7 +128,8 @@ class PeliculasDaoMockImpl : PeliculasDao {
                             "esperanza a nuestro mundo, pero para completarlo necesitará la ayuda de " +
                             "Cleveland y de todos los vecinos",
                     "4",
-                    "https://http2.mlstatic.com/D_NQ_NP_926655-MLM27398161115_052018-O.jpg"
+                    "https://http2.mlstatic.com/D_NQ_NP_926655-MLM27398161115_052018-O.jpg",
+                    "https://www.youtube.com/watch?v=pKR1mfrfGAo"
                 )
             )
         )

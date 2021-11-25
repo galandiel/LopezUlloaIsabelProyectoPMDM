@@ -16,5 +16,6 @@ data class Pelicula(
     var genero: String,
     var sinopsis: String,
     var nota: String,
-    var imagen: String
+    var imagen: String,
+    var trailer : String
 ) : Serializable

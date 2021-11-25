@@ -24,4 +24,8 @@
     <!-- Textos -->
     <dimen name="texto_item_titulo">20sp</dimen>
 
+    <!-- Videos -->
+    <dimen name="video_trailer_ancho">350dp</dimen>
+    <dimen name="video_trailer_alto">250dp</dimen>
+
 </resources>
