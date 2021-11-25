@@ -5,7 +5,7 @@ import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities
 //public class PersonajesMockImpl implements Personajes Dao
 class PeliculasDaoMockImpl : PeliculasDao {
 
-    val lista = ArrayList<Pelicula>()
+    private val lista = ArrayList<Pelicula>()
 
     override fun getAll(): ArrayList<Pelicula> {
         lista.addAll(

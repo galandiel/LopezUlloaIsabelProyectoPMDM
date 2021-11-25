@@ -25,13 +25,13 @@ class MainActivity : AppCompatActivity() {
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-        setTitle("FilmGoer")
+        title = "FilmGoer"
 
         binding.btAcceder.setOnClickListener {
             val intent = Intent(this, PeliculasActivity::class.java)
-            if (binding.tietEmail.text.toString().equals("")) {
+            if (binding.tietEmail.text.toString() == "") {
                 Toast.makeText(this, "Introduce un email", Toast.LENGTH_SHORT).show()
-            } else if (binding.tietContrasena.text.toString().equals("")) {
+            } else if (binding.tietContrasena.text.toString() == "") {
                 Toast.makeText(this, "Introduce una contraseña", Toast.LENGTH_SHORT).show()
             } else if (TextUtils.equals(binding.tietContrasena.text.toString().trim(), contrasena)
             ) {

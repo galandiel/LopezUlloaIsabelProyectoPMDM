@@ -4,9 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityRegistroBinding
+import java.util.regex.Pattern
 
 class RegistroActivity : AppCompatActivity() {
 
@@ -26,6 +28,8 @@ class RegistroActivity : AppCompatActivity() {
                 TextUtils.equals(binding.tietValidarContrasena.text.toString().trim(), "")
             ) {
                 Toast.makeText(this, "Hay campos vacíos", Toast.LENGTH_SHORT).show()
+            } else if (!validarEmail(binding.tietEmail.text.toString().trim())){
+                Toast.makeText(this, "Email no válido", Toast.LENGTH_SHORT).show()
             } else {
                 if (TextUtils.equals(
                         binding.tietContrasenaRegistro.text.toString(),
@@ -48,6 +52,13 @@ class RegistroActivity : AppCompatActivity() {
             }
         }
 
+
+
+    }
+
+    private fun validarEmail(email:String):Boolean{
+        val pattern: Pattern = Patterns.EMAIL_ADDRESS
+        return pattern.matcher(email).matches()
     }
 
 }

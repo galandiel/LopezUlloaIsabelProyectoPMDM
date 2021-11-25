@@ -7,10 +7,8 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.App
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.App.Companion.peliculas
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.adapters.ListaPeliculasAdapter
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityDetalleBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
 import com.squareup.picasso.Picasso
@@ -30,7 +28,7 @@ class DetalleActivity : AppCompatActivity() {
 
         infoPelicula = intent.extras?.get("pelicula") as Pelicula
 
-        setTitle(infoPelicula.titulo)
+        title = infoPelicula.titulo
         binding.tvDetalleAnno.text = infoPelicula.anno
         binding.tvDetalleDuracion.text = infoPelicula.duracion
         binding.tvDetallePais.text = infoPelicula.pais
@@ -63,11 +61,11 @@ class DetalleActivity : AppCompatActivity() {
             val builder = AlertDialog.Builder(this)
             val dialog = builder.setTitle("Borrar película")
                 .setMessage("Estás a punto de eliminar la película, ¿estás seguro?")
-                .setPositiveButton("Aceptar", { dialog, id ->
+                .setPositiveButton("Aceptar") { dialog, id ->
                     peliculas.remove(infoPelicula)
                     Toast.makeText(this, "Película eliminada", Toast.LENGTH_SHORT).show()
                     finish()
-                })
+                }
                 .setNegativeButton("Cancelar", null)
                 .create()
             dialog.show()

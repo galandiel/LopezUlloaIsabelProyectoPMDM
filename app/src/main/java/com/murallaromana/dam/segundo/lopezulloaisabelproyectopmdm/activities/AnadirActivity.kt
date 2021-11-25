@@ -1,6 +1,7 @@
 package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -11,9 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.App.Companion.peliculas
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityAnadirBinding
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityDetalleBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
-import com.squareup.picasso.Picasso
 
 class AnadirActivity : AppCompatActivity() {
 
@@ -97,6 +96,15 @@ class AnadirActivity : AppCompatActivity() {
             startActivity(intent)
             Toast.makeText(this, "Acción cancelada", Toast.LENGTH_SHORT).show()
             return true
+        } else if (item.itemId == R.id.accion_ayuda) {
+            val numeroTelefono = "0034617974641"
+            if (!TextUtils.isEmpty(numeroTelefono)) {
+                val dial = "tel:$numeroTelefono"
+                startActivity(Intent(Intent.ACTION_DIAL, Uri.parse(dial)))
+            } else {
+                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+            }
+            return false
         } else {
             return super.onOptionsItemSelected(item)
         }

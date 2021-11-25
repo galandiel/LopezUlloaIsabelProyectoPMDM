@@ -36,4 +36,10 @@
     <string name="pantalla_peliculas">Films</string>
     <string name="pantalla_anadir">New film</string>
     <string name="pantalla_editar">Edit film</string>
+    <string name="boton_guardar">Save</string>
+    <string name="boton_editar">Edit</string>
+    <string name="boton_eliminar">Delete</string>
+    <string name="boton_cancelar">Cancel</string>
+    <string name="boton_ayuda">Help</string>
+    <string name="texto_o">or</string>
 </resources>

@@ -4,8 +4,24 @@
     <dimen name="margen_activity_default_horizontal">16dp</dimen>
     <dimen name="margen_activity_default_vertical">16dp</dimen>
     <dimen name="margen_vertical_entre_edittexts">20dp</dimen>
+    <dimen name="margen_top_default">40dp</dimen>
+    <dimen name="margen_lista">10dp</dimen>
 
     <!-- Imágenes -->
-    <dimen name="imagen_lista_tamano_default">64dp</dimen>
+    <dimen name="imagen_lista_tamano_default">110dp</dimen>
+    <dimen name="imagen_activity_main_ancho">100dp</dimen>
+    <dimen name="imagen_activity_main_alto">90dp</dimen>
+    <dimen name="imagen_activity_detalle">170dp</dimen>
+
+    <!-- Componentes -->
+    <dimen name="tamano_default">0dp</dimen>
+    <dimen name="componente_til_ancho">300dp</dimen>
+    <dimen name="componente_til_alto">60dp</dimen>
+    <dimen name="componente_tv_crearcuenta_ancho">80dp</dimen>
+    <dimen name="componente_tv_crearcuenta_alto">20dp</dimen>
+    <dimen name="componente_item_tv_titulo">180dp</dimen>
+
+    <!-- Textos -->
+    <dimen name="texto_item_titulo">20sp</dimen>
 
 </resources>

@@ -34,8 +34,14 @@
 
     <!-- Acciones -->
     <string name="boton_acceder">Acceder</string>
+    <string name="texto_o">o</string>
     <string name="texto_crearCuenta"><u>Crear cuenta</u></string>
     <string name="boton_crearCuenta">Crear cuenta</string>
+    <string name="boton_guardar">Guardar</string>
+    <string name="boton_editar">Editar</string>
+    <string name="boton_eliminar">Eliminar</string>
+    <string name="boton_cancelar">Cancelar</string>
+    <string name="boton_ayuda">Ayuda</string>
 
     <!-- Nombres de pantallas -->
     <string name="pantalla_registro">Crear cuenta</string>

@@ -5,12 +5,20 @@
         android:id="@+id/accion_guardar"
         android:icon="@drawable/ic_baseline_done_24"
         android:orderInCategory="300"
-        android:title="Guardar"
+        android:title="@string/boton_guardar"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/accion_cancelar"
-        android:icon="@drawable/ic_baseline_cancel_24"
+        android:icon="@drawable/ic_baseline_close_24"
         android:orderInCategory="300"
-        android:title="Cancelar"
+        android:title="@string/boton_cancelar"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/accion_ayuda"
+        android:icon="@drawable/ic_baseline_support_agent_24"
+        android:orderInCategory="300"
+        android:title="@string/boton_ayuda"
+        app:showAsAction="ifRoom" />
+
 </menu>

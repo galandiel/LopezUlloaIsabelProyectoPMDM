@@ -5,12 +5,12 @@
         android:id="@+id/accion_editar"
         android:icon="@drawable/ic_baseline_edit_24"
         android:orderInCategory="300"
-        android:title="Editar"
+        android:title="@string/boton_editar"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/accion_borrar"
         android:icon="@drawable/ic_baseline_delete_24"
         android:orderInCategory="300"
-        android:title="Eliminar"
+        android:title="@string/boton_eliminar"
         app:showAsAction="ifRoom" />
 </menu>
