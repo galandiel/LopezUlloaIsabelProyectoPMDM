@@ -33,6 +33,24 @@ class DetalleActivity : AppCompatActivity() {
         binding = ActivityDetalleBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.fabPlay.setOnClickListener {
+            val ventana = PopupWindow(this)
+            val vista = layoutInflater.inflate(R.layout.layout_video, null)
+            ventana.contentView = vista
+            val video = vista.findViewById<VideoView>(R.id.vvTrailer)
+            val ruta = infoPelicula.trailer
+            val uri: Uri = Uri.parse(ruta)
+            video.setVideoURI(uri)
+            video.start()
+            ventana.showAtLocation(vista, Gravity.CENTER, 0, 0)
+            video.setOnClickListener {
+                ventana.dismiss()
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
         infoPelicula = intent.extras?.get("pelicula") as Pelicula
 
         title = infoPelicula.titulo
@@ -51,21 +69,6 @@ class DetalleActivity : AppCompatActivity() {
 
         val nota = infoPelicula.nota.toFloat()/2
         binding.ratingBarDetalle.rating = nota
-
-        binding.fabPlay.setOnClickListener {
-            val ventana = PopupWindow(this)
-            val vista = layoutInflater.inflate(R.layout.layout_video, null)
-            ventana.contentView = vista
-            val video = vista.findViewById<VideoView>(R.id.vvTrailer)
-            val ruta = infoPelicula.trailer
-            val uri: Uri = Uri.parse(ruta)
-            video.setVideoURI(uri)
-            video.start()
-            ventana.showAtLocation(vista, Gravity.CENTER, 0, 0)
-            video.setOnClickListener {
-                ventana.dismiss()
-            }
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -81,14 +84,14 @@ class DetalleActivity : AppCompatActivity() {
             return true
         } else if (item.itemId == R.id.accion_borrar) {
             val builder = AlertDialog.Builder(this)
-            val dialog = builder.setTitle("Borrar película")
-                .setMessage("Estás a punto de eliminar la película, ¿estás seguro?")
-                .setPositiveButton("Aceptar") { dialog, id ->
+            val dialog = builder.setTitle(R.string.mensaje_borrar_pelicula)
+                .setMessage(R.string.mensaje_confirmacion_eliminar)
+                .setPositiveButton(R.string.boton_aceptar) { dialog, id ->
                     peliculas.remove(infoPelicula)
-                    Toast.makeText(this, "Película eliminada", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, R.string.toast_pelicula_eliminada, Toast.LENGTH_SHORT).show()
                     finish()
                 }
-                .setNegativeButton("Cancelar", null)
+                .setNegativeButton(R.string.boton_cancelar, null)
                 .create()
             dialog.show()
             return true

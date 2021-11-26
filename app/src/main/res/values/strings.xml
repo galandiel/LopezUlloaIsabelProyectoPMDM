@@ -31,6 +31,7 @@
     <string name="hint_sinopsis">Sinopsis</string>
     <string name="hint_nota">Nota</string>
     <string name="hint_imagen">Url de la imagen</string>
+    <string name="hint_trailer">Url del tráiler</string>
 
     <!-- Acciones -->
     <string name="boton_acceder">Acceder</string>
@@ -42,11 +43,31 @@
     <string name="boton_eliminar">Eliminar</string>
     <string name="boton_cancelar">Cancelar</string>
     <string name="boton_ayuda">Ayuda</string>
+    <string name="boton_aceptar">Aceptar</string>
 
     <!-- Nombres de pantallas -->
     <string name="pantalla_registro">Crear cuenta</string>
     <string name="pantalla_peliculas">Películas</string>
     <string name="pantalla_anadir">Nueva película</string>
     <string name="pantalla_editar">Editar película</string>
+
+    <!-- Toasts -->
+    <string name="toast_introduce_email">Introduce un email</string>
+    <string name="toast_introduce_contrasena">Introduce una contraseña</string>
+    <string name="toast_contrasena_incorrecta">Contraseña incorrecta</string>
+    <string name="toast_email_no_valido">Email no válido</string>
+    <string name="toast_campos_vacios">Hay campos vacíos</string>
+    <string name="toast_contrasenas_no_coinciden">Las contraseñas no coinciden</string>
+    <string name="toast_pelicula_eliminada">Película eliminada</string>
+    <string name="toast_pelicula_guardada">Película guardada</string>
+    <string name="toast_accion_cancelada">Acción cancelada</string>
+    <string name="toast_error">Error</string>
+
+    <!-- Mensajes -->
+    <string name="mensaje_borrar_pelicula">Borrar película</string>
+    <string name="mensaje_confirmacion_eliminar">Estás a punto de eliminar la película, ¿estás seguro?</string>
+    <string name="mensaje_guardar_pelicula">Guardar película</string>
+    <string name="mensaje_confirmacioin_guardar">Estás a punto de guardar la película, ¿estás seguro?</string>
+    <string name="mensaje_usuario_no_existe">El usuario no existe</string>
 
 </resources>

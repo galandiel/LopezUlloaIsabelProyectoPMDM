@@ -7,6 +7,7 @@ import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityRegistroBinding
 import java.util.regex.Pattern
 
@@ -21,15 +22,15 @@ class RegistroActivity : AppCompatActivity() {
 
         binding.btCrearCuenta.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
-            if (TextUtils.equals(binding.tietUsuario.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietEmail.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietTelefono.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietContrasenaRegistro.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietValidarContrasena.text.toString().trim(), "")
+            if (TextUtils.isEmpty(binding.tietUsuario.text.toString().trim()) ||
+                TextUtils.isEmpty(binding.tietEmail.text.toString().trim()) ||
+                TextUtils.isEmpty(binding.tietTelefono.text.toString().trim()) ||
+                TextUtils.isEmpty(binding.tietContrasenaRegistro.text.toString().trim()) ||
+                TextUtils.isEmpty(binding.tietValidarContrasena.text.toString().trim())
             ) {
-                Toast.makeText(this, "Hay campos vacíos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.toast_campos_vacios, Toast.LENGTH_SHORT).show()
             } else if (!validarEmail(binding.tietEmail.text.toString().trim())){
-                Toast.makeText(this, "Email no válido", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.toast_email_no_valido, Toast.LENGTH_SHORT).show()
             } else {
                 if (TextUtils.equals(
                         binding.tietContrasenaRegistro.text.toString(),
@@ -46,14 +47,11 @@ class RegistroActivity : AppCompatActivity() {
                     editor.apply()
                     startActivity(intent)
                 } else {
-                    Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT)
+                    Toast.makeText(this, R.string.toast_contrasenas_no_coinciden, Toast.LENGTH_SHORT)
                         .show()
                 }
             }
         }
-
-
-
     }
 
     private fun validarEmail(email:String):Boolean{

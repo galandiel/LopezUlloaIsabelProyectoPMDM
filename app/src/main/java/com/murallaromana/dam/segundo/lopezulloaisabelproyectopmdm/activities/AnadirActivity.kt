@@ -30,66 +30,68 @@ class AnadirActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
         if (item.itemId == R.id.accion_guardar) {
-            if (TextUtils.equals(binding.tietAnadirTitulo.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietAnadirAnno.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietAnadirDuracion.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietAnadirPais.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietAnadirDirector.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietAnadirGuion.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietAnadirMusica.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietAnadirFotografia.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietAnadirReparto.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietAnadirGenero.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietAnadirSinopsis.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietAnadirNota.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietAnadirImagen.text.toString().trim(), "") ||
-                TextUtils.equals(binding.tietAnadirTrailer.text.toString().trim(), "")
+
+            val titulo = binding.tietAnadirTitulo.text.toString().trim()
+            val anno = binding.tietAnadirAnno.text.toString().trim()
+            val duracion = binding.tietAnadirDuracion.text.toString().trim()
+            val pais = binding.tietAnadirPais.text.toString().trim()
+            val director = binding.tietAnadirDirector.text.toString().trim()
+            val guion = binding.tietAnadirGuion.text.toString().trim()
+            val musica = binding.tietAnadirMusica.text.toString().trim()
+            val fotografia = binding.tietAnadirFotografia.text.toString().trim()
+            val reparto = binding.tietAnadirReparto.text.toString().trim()
+            val genero = binding.tietAnadirGenero.text.toString().trim()
+            val sinopsis = binding.tietAnadirSinopsis.text.toString().trim()
+            val nota = binding.tietAnadirNota.text.toString().trim()
+            val imagen = binding.tietAnadirImagen.text.toString().trim()
+            val trailer = binding.tietAnadirTrailer.text.toString().trim()
+
+            if (TextUtils.isEmpty(titulo) ||
+                TextUtils.isEmpty(anno) ||
+                TextUtils.isEmpty(duracion) ||
+                TextUtils.isEmpty(pais) ||
+                TextUtils.isEmpty(director) ||
+                TextUtils.isEmpty(guion) ||
+                TextUtils.isEmpty(musica) ||
+                TextUtils.isEmpty(fotografia) ||
+                TextUtils.isEmpty(reparto) ||
+                TextUtils.isEmpty(genero) ||
+                TextUtils.isEmpty(sinopsis) ||
+                TextUtils.isEmpty(nota) ||
+                TextUtils.isEmpty(imagen) ||
+                TextUtils.isEmpty(trailer)
             ) {
-                Toast.makeText(this, "Hay campos vacíos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.toast_campos_vacios, Toast.LENGTH_SHORT).show()
             } else {
                 val builder = AlertDialog.Builder(this)
-                val dialog = builder.setTitle("Guardar película")
-                    .setMessage("Estás a punto de guardar la película, ¿estás seguro?")
-                    .setPositiveButton("Aceptar", { dialog, id ->
-                        val id = peliculas.size
-                        val titulo = binding.tietAnadirTitulo.text.toString()
-                        val anno = binding.tietAnadirAnno.text.toString()
-                        val duracion = binding.tietAnadirDuracion.text.toString()
-                        val pais = binding.tietAnadirPais.text.toString()
-                        val director = binding.tietAnadirDirector.text.toString()
-                        val guion = binding.tietAnadirGuion.text.toString()
-                        val musica = binding.tietAnadirMusica.text.toString()
-                        val fotografia = binding.tietAnadirFotografia.text.toString()
-                        val reparto = binding.tietAnadirReparto.text.toString()
-                        val genero = binding.tietAnadirGenero.text.toString()
-                        val sinopsis = binding.tietAnadirSinopsis.text.toString()
-                        val nota = binding.tietAnadirNota.text.toString()
-                        val imagen = binding.tietAnadirImagen.text.toString()
-                        val trailer = binding.tietAnadirTrailer.text.toString()
+                val dialog = builder.setTitle(R.string.mensaje_guardar_pelicula)
+                    .setMessage(R.string.mensaje_guardar_pelicula)
+                    .setPositiveButton(R.string.boton_aceptar, { dialog, id ->
                         peliculas.add(
                             Pelicula(
-                                id,
-                                titulo,
-                                anno,
-                                duracion,
-                                pais,
-                                director,
-                                guion,
-                                musica,
-                                fotografia,
-                                reparto,
-                                genero,
-                                sinopsis,
-                                nota,
-                                imagen,
-                                trailer
+                                peliculas.size,
+                                binding.tietAnadirTitulo.text.toString(),
+                                binding.tietAnadirAnno.text.toString(),
+                                binding.tietAnadirDuracion.text.toString(),
+                                binding.tietAnadirPais.text.toString(),
+                                binding.tietAnadirDirector.text.toString(),
+                                binding.tietAnadirGuion.text.toString(),
+                                binding.tietAnadirMusica.text.toString(),
+                                binding.tietAnadirFotografia.text.toString(),
+                                binding.tietAnadirReparto.text.toString(),
+                                binding.tietAnadirGenero.text.toString(),
+                                binding.tietAnadirSinopsis.text.toString(),
+                                binding.tietAnadirNota.text.toString(),
+                                binding.tietAnadirImagen.text.toString(),
+                                binding.tietAnadirTrailer.text.toString()
                             )
                         )
-                        Toast.makeText(this, "Película guardada", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, R.string.toast_pelicula_guardada, Toast.LENGTH_SHORT).show()
                         finish()
                     })
-                    .setNegativeButton("Cancelar", null)
+                    .setNegativeButton(R.string.boton_cancelar, null)
                     .create()
                 dialog.show()
             }
@@ -97,7 +99,7 @@ class AnadirActivity : AppCompatActivity() {
         } else if (item.itemId == R.id.accion_cancelar) {
             val intent = Intent(this, PeliculasActivity::class.java)
             startActivity(intent)
-            Toast.makeText(this, "Acción cancelada", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.toast_accion_cancelada, Toast.LENGTH_SHORT).show()
             return true
         } else if (item.itemId == R.id.accion_ayuda) {
             val numeroTelefono = "0034617974641"
@@ -105,7 +107,7 @@ class AnadirActivity : AppCompatActivity() {
                 val dial = "tel:$numeroTelefono"
                 startActivity(Intent(Intent.ACTION_DIAL, Uri.parse(dial)))
             } else {
-                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.toast_error, Toast.LENGTH_SHORT).show()
             }
             return false
         } else {

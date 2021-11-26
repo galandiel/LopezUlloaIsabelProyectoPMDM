@@ -42,4 +42,20 @@
     <string name="boton_cancelar">Cancel</string>
     <string name="boton_ayuda">Help</string>
     <string name="texto_o">or</string>
+    <string name="hint_trailer">Trailer url</string>
+    <string name="boton_aceptar">Accept</string>
+    <string name="toast_introduce_email">Type an email</string>
+    <string name="toast_introduce_contrasena">Type a password</string>
+    <string name="toast_contrasena_incorrecta">Invalid password</string>
+    <string name="toast_email_no_valido">Invalid email</string>
+    <string name="toast_campos_vacios">There are empty fields</string>
+    <string name="toast_contrasenas_no_coinciden">Passwords don\'t match</string>
+    <string name="toast_pelicula_eliminada">Deleted film</string>
+    <string name="toast_pelicula_guardada">Saved film</string>
+    <string name="toast_accion_cancelada">Cancelled action</string>
+    <string name="toast_error">Error</string>
+    <string name="mensaje_borrar_pelicula">Delete film</string>
+    <string name="mensaje_confirmacion_eliminar">You\'re about to delete the film, are you sure?</string>
+    <string name="mensaje_guardar_pelicula">Save film</string>
+    <string name="mensaje_confirmacioin_guardar">You\'re about to save the film, are you sure?</string>
 </resources>
