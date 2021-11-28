@@ -1,12 +1,9 @@
 package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.KeyEvent
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
@@ -36,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             if (binding.tietEmail.text.toString() == "") {
                 Toast.makeText(this, R.string.toast_introduce_email, Toast.LENGTH_SHORT).show()
             } else if (!email.equals(binding.tietEmail.text.toString())) {
-                binding.tietEmail.setError(getString(R.string.mensaje_usuario_no_existe))
+                binding.tietEmail.error = getString(R.string.mensaje_usuario_no_existe)
             } else if (binding.tietContrasena.text.toString() == "") {
                 Toast.makeText(this, R.string.toast_introduce_contrasena, Toast.LENGTH_SHORT).show()
             } else if (TextUtils.equals(
@@ -59,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if (getIntent().getBooleanExtra("EXIT", false)) {
+        if (intent.getBooleanExtra("EXIT", false)) {
             finish()
         }
     }

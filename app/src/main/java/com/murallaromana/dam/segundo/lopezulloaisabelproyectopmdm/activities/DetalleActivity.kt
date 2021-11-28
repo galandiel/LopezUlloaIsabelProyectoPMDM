@@ -1,11 +1,11 @@
 package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.PopupWindow
 import android.widget.Toast
 import android.widget.VideoView
@@ -17,7 +17,6 @@ import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.Ac
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
 import com.squareup.picasso.Picasso
 import android.net.Uri
-import android.provider.MediaStore
 
 
 class DetalleActivity : AppCompatActivity() {
@@ -28,6 +27,7 @@ class DetalleActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetalleBinding
 
+    @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetalleBinding.inflate(layoutInflater)
@@ -77,26 +77,30 @@ class DetalleActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.accion_editar) {
-            val intent = Intent(this, EditarActivity::class.java)
-            intent.putExtra("pelicula", infoPelicula)
-            startActivity(intent)
-            return true
-        } else if (item.itemId == R.id.accion_borrar) {
-            val builder = AlertDialog.Builder(this)
-            val dialog = builder.setTitle(R.string.mensaje_borrar_pelicula)
-                .setMessage(R.string.mensaje_confirmacion_eliminar)
-                .setPositiveButton(R.string.boton_aceptar) { dialog, id ->
-                    peliculas.remove(infoPelicula)
-                    Toast.makeText(this, R.string.toast_pelicula_eliminada, Toast.LENGTH_SHORT).show()
-                    finish()
-                }
-                .setNegativeButton(R.string.boton_cancelar, null)
-                .create()
-            dialog.show()
-            return true
-        } else {
-            return super.onOptionsItemSelected(item)
+        when (item.itemId) {
+            R.id.accion_editar -> {
+                val intent = Intent(this, EditarActivity::class.java)
+                intent.putExtra("pelicula", infoPelicula)
+                startActivity(intent)
+                return true
+            }
+            R.id.accion_borrar -> {
+                val builder = AlertDialog.Builder(this)
+                val dialog = builder.setTitle(R.string.mensaje_borrar_pelicula)
+                    .setMessage(R.string.mensaje_confirmacion_eliminar)
+                    .setPositiveButton(R.string.boton_aceptar) { _, _ ->
+                        peliculas.remove(infoPelicula)
+                        Toast.makeText(this, R.string.toast_pelicula_eliminada, Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
+                    .setNegativeButton(R.string.boton_cancelar, null)
+                    .create()
+                dialog.show()
+                return true
+            }
+            else -> {
+                return super.onOptionsItemSelected(item)
+            }
         }
     }
 

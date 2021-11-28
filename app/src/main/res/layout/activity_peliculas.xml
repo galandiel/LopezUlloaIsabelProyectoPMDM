@@ -28,5 +28,8 @@
         app:backgroundTint="@color/primaryColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:focusable="true"
+        android:contentDescription="@string/hint_imagen"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

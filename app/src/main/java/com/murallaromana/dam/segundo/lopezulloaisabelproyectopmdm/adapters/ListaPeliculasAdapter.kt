@@ -10,7 +10,7 @@ import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.It
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
 import com.squareup.picasso.Picasso
 
-class ListaPeliculasAdapter(val peliculas: List<Pelicula>, val context: Context) :
+class ListaPeliculasAdapter(private val peliculas: List<Pelicula>, val context: Context) :
     RecyclerView.Adapter<ListaPeliculasAdapter.PeliculasViewHolder>() {
 
     class PeliculasViewHolder(private val itemBinding: ItemPeliculaBinding) :

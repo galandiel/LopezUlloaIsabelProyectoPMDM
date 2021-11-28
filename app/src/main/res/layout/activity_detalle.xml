@@ -20,7 +20,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="@string/hint_imagen"/>
 
         <TextView
             android:id="@+id/tvLabelAnno"
@@ -264,11 +265,14 @@
             android:id="@+id/fabPlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:clickable="true"
             android:backgroundTint="@color/primaryColor"
+            android:clickable="true"
             app:layout_constraintBottom_toBottomOf="@+id/ivDetalleImagen"
             app:layout_constraintEnd_toEndOf="@+id/ivDetalleImagen"
-            app:srcCompat="@drawable/ic_baseline_play_arrow_24" />
+            app:srcCompat="@drawable/ic_baseline_play_arrow_24"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:focusable="true"
+            android:contentDescription="@string/hint_imagen" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
