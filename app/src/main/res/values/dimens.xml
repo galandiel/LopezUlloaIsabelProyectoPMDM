@@ -22,7 +22,7 @@
     <dimen name="componente_item_tv_titulo">180dp</dimen>
 
     <!-- Textos -->
-    <dimen name="texto_item_titulo">20sp</dimen>
+    <dimen name="texto_item_titulo">25sp</dimen>
 
     <!-- Videos -->
     <dimen name="video_trailer_ancho">350dp</dimen>

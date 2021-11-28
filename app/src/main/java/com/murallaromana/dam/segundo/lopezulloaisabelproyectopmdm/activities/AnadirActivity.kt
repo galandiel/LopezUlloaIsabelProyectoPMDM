@@ -97,8 +97,7 @@ class AnadirActivity : AppCompatActivity() {
             }
             return true
         } else if (item.itemId == R.id.accion_cancelar) {
-            val intent = Intent(this, PeliculasActivity::class.java)
-            startActivity(intent)
+            finish()
             Toast.makeText(this, R.string.toast_accion_cancelada, Toast.LENGTH_SHORT).show()
             return true
         } else if (item.itemId == R.id.accion_ayuda) {

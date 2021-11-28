@@ -12,7 +12,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
             listOf(
                 Pelicula(
                     0,
-                    "Inception",
+                    "Origen",
                     "2010",
                     "148 min.",
                     "Estados Unidos",
@@ -39,12 +39,12 @@ class PeliculasDaoMockImpl : PeliculasDao {
                             "de alguien que parece predecir cada uno de sus " +
                             "movimientos, alguien a quien sólo Cobb podrá descubrir.",
                     "8.0",
-                    "https://m.media-amazon.com/images/I/71SBgi0X2KL._SL1200_.jpg",
+                    "https://www.themoviedb.org/t/p/w1280/tXQvtRWfkUUnWJAn2tN3jERIUG.jpg",
                     "https://www.youtube.com/watch?v=YoHD9XEInc0"
                 ),
                 Pelicula(
-                    0,
-                    "Dunkirk",
+                    1,
+                    "Dunquerque",
                     "2017",
                     "107 min.",
                     "Reino Unido",
@@ -75,8 +75,8 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "https://www.youtube.com/watch?v=F-eMt3SrfFU"
                 ),
                 Pelicula(
-                    0,
-                    "Split",
+                    2,
+                    "Múltiple",
                     "2016",
                     "116 min.",
                     "Estados Unidos",
@@ -104,8 +104,8 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "https://www.youtube.com/watch?v=84TouqfIsiI"
                 ),
                 Pelicula(
-                    0,
-                    "Lady in the Water",
+                    3,
+                    "La joven del agua",
                     "2006",
                     "110 min.",
                     "Estados Unidos",
@@ -130,6 +130,30 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "4",
                     "https://http2.mlstatic.com/D_NQ_NP_926655-MLM27398161115_052018-O.jpg",
                     "https://www.youtube.com/watch?v=pKR1mfrfGAo"
+                ),
+                Pelicula(
+                    4,
+                    "Mulán",
+                    "1998",
+                    "88 min.",
+                    "Estados Unidos",
+                    "Barry Cook, Tony Bancroft",
+                    "Rita Hsiao, Chris Sanders, Philip Lazebnik, Raymond Singer",
+                    "Jerry Goldsmith",
+                    "Animación",
+                    "Animación",
+                    "Animación. Aventuras. Acción. Comedia. Musical | Dragones. Cine épico ",
+                    "Mulan, una joven china hija única de la familia Fa, en lugar de buscar " +
+                            "novio, como sus amigas, trata por todos los medios de alistarse en el " +
+                            "ejército imperial para evitar que su anciano padre sea llamado a filas " +
+                            "para defender al Emperador del acoso de los Hunos. Cuando el emisario " +
+                            "imperial lleva a cabo la orden de reclutar a los varones de todas las " +
+                            "familias, Mulan se hará pasar por soldado y se someterá a un duro " +
+                            "entrenamiento hasta hacerse merecedora de la estima y de la confianza " +
+                            "del resto de su escuadrón.",
+                    "6.5",
+                    "https://www.themoviedb.org/t/p/w1280/towmTJ0k29quKI9IDnOZKAAtQx.jpg",
+                    "https://www.youtube.com/watch?v=N9FbeVTWrKM"
                 )
             )
         )

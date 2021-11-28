@@ -1,13 +1,21 @@
 package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.App
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.adapters.ListaPeliculasAdapter
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityPeliculasBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.PeliculasDaoMockImpl
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
 
 class PeliculasActivity : AppCompatActivity() {
 
@@ -37,6 +45,45 @@ class PeliculasActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_peliculas, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.accion_salir) {
+                val builder = AlertDialog.Builder(this)
+                val dialog = builder.setTitle(R.string.mensaje_salir)
+                    .setMessage(R.string.mensaje_confirmacion_salir)
+                    .setPositiveButton(R.string.boton_aceptar, { dialog, id ->
+                        val intent = Intent(this, MainActivity::class.java)
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        intent.putExtra("EXIT", true)
+                        startActivity(intent)
+                    })
+                    .setNegativeButton(R.string.boton_cancelar, null)
+                    .create()
+                dialog.show()
+            return true
+        } else if (item.itemId == R.id.accion_cerrar_sesion) {
+            val builder = AlertDialog.Builder(this)
+            val dialog = builder.setTitle(R.string.mensaje_cerrar_sesion)
+                .setMessage(R.string.mensaje_confirmacion_cerrar_sesion)
+                .setPositiveButton(R.string.boton_aceptar, { dialog, id ->
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    startActivity(intent)
+                })
+                .setNegativeButton(R.string.boton_cancelar, null)
+                .create()
+            dialog.show()
+            return true
+        }
+        else {
+            return super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onResume() {

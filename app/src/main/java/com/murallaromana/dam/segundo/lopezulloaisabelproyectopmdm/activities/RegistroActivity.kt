@@ -21,7 +21,6 @@ class RegistroActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btCrearCuenta.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
             if (TextUtils.isEmpty(binding.tietUsuario.text.toString().trim()) ||
                 TextUtils.isEmpty(binding.tietEmail.text.toString().trim()) ||
                 TextUtils.isEmpty(binding.tietTelefono.text.toString().trim()) ||
@@ -45,7 +44,7 @@ class RegistroActivity : AppCompatActivity() {
                     editor.putString("email", binding.tietEmail.text.toString())
                     editor.putString("contrasena", binding.tietContrasenaRegistro.text.toString())
                     editor.apply()
-                    startActivity(intent)
+                    onBackPressed()
                 } else {
                     Toast.makeText(this, R.string.toast_contrasenas_no_coinciden, Toast.LENGTH_SHORT)
                         .show()

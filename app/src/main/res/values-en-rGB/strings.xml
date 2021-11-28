@@ -58,4 +58,9 @@
     <string name="mensaje_confirmacion_eliminar">You\'re about to delete the film, are you sure?</string>
     <string name="mensaje_guardar_pelicula">Save film</string>
     <string name="mensaje_confirmacioin_guardar">You\'re about to save the film, are you sure?</string>
+    <string name="mensaje_usuario_no_existe">This user doesn\'t exist</string>
+    <string name="mensaje_salir">Exit</string>
+    <string name="mensaje_confirmacion_salir">You\'re about to exit the app, are you sure?</string>
+    <string name="mensaje_cerrar_sesion">Logout</string>
+    <string name="mensaje_confirmacion_cerrar_sesion">You\'re about to logout, are you sure?</string>
 </resources>

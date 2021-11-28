@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:paddingHorizontal="@dimen/margen_activity_default_horizontal"
     android:paddingVertical="@dimen/margen_activity_default_vertical"
-    app:cardBackgroundColor="@color/cardColor"
+
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,8 +28,8 @@
 
         <TextView
             android:id="@+id/tvTitle"
-            android:layout_width="@dimen/componente_item_tv_titulo"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
             android:layout_marginStart="@dimen/margen_lista"
             android:textAlignment="textStart"
             android:textSize="@dimen/texto_item_titulo"
@@ -48,16 +48,17 @@
 
         <RatingBar
             android:id="@+id/ratingBar"
-            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margen_lista"
+            android:layout_marginBottom="16dp"
             android:numStars="5"
             android:progressTint="@color/primaryDarkColor"
             android:secondaryProgressTint="@color/primaryDarkColor"
             android:stepSize="0.5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toEndOf="@+id/ivImage" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

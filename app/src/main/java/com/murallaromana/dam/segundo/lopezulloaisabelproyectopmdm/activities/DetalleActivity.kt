@@ -100,4 +100,9 @@ class DetalleActivity : AppCompatActivity() {
         }
     }
 
+    //override fun onStop() {
+        //super.onStop()
+        //onBackPressed()
+    //}
+
 }

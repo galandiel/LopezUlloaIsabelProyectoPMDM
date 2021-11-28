@@ -5,6 +5,7 @@ import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Peli
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
 
 class App : Application() {
+
     companion object {
         var peliculas: ArrayList<Pelicula> = ArrayList()
     }

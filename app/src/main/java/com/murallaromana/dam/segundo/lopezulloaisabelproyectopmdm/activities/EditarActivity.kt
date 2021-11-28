@@ -111,9 +111,10 @@ class EditarActivity : AppCompatActivity() {
                             trailer
                         )
                         peliculas[indicePelicula] = peliculaEditada
-
                         Toast.makeText(this, R.string.toast_pelicula_guardada, Toast.LENGTH_SHORT).show()
-                        finish()
+                        val intent = Intent(this, PeliculasActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        startActivity(intent)
                     })
                     .setNegativeButton(R.string.boton_cancelar, null)
                     .create()

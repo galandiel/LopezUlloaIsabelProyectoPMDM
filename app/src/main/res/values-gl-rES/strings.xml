@@ -58,4 +58,9 @@
     <string name="mensaje_confirmacion_eliminar">Estás a punto de eliminar o filme, estás seguro?</string>
     <string name="mensaje_guardar_pelicula">Gardar filme</string>
     <string name="mensaje_confirmacioin_guardar">Estás a punto de gardar o filme, estás seguro?</string>
+    <string name="mensaje_usuario_no_existe">O usuario non existe</string>
+    <string name="mensaje_salir">Saír</string>
+    <string name="mensaje_confirmacion_salir">Estás a punto de saír da aplicación, estás seguro?</string>
+    <string name="mensaje_cerrar_sesion">Pechar sesión</string>
+    <string name="mensaje_confirmacion_cerrar_sesion">Estás a punto de pechar sesión, estás seguro?</string>
 </resources>
