@@ -3,12 +3,8 @@ package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.PopupWindow
 import android.widget.Toast
-import android.widget.VideoView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.App.Companion.peliculas
@@ -16,7 +12,8 @@ import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityDetalleBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
 import com.squareup.picasso.Picasso
-import android.net.Uri
+import android.view.*
+import android.widget.LinearLayout
 
 
 class DetalleActivity : AppCompatActivity() {
@@ -34,20 +31,40 @@ class DetalleActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.fabPlay.setOnClickListener {
-            val ventana = PopupWindow(this)
-            val vista = layoutInflater.inflate(R.layout.layout_video, null)
-            ventana.contentView = vista
-            val video = vista.findViewById<VideoView>(R.id.vvTrailer)
-            val ruta = infoPelicula.trailer
-            val uri: Uri = Uri.parse(ruta)
-            video.setVideoURI(uri)
-            video.start()
-            ventana.showAtLocation(vista, Gravity.CENTER, 0, 0)
-            video.setOnClickListener {
-                ventana.dismiss()
+            val inflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            val vista = inflater.inflate(
+                R.layout.layout_video,
+                null
+            )
+
+            val ancho = LinearLayout.LayoutParams.WRAP_CONTENT
+            val alto = LinearLayout.LayoutParams.WRAP_CONTENT
+            val focusable = true
+            val popupWindow = PopupWindow(vista, ancho, alto, focusable)
+
+            popupWindow.showAtLocation(vista, Gravity.CENTER, 0, 0)
+
+            vista.setOnTouchListener(object : View.OnTouchListener {
+                @SuppressLint("ClickableViewAccessibility")
+                override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                    popupWindow.dismiss()
+                    return true
+                }
+            })
+
+            //val ventana = PopupWindow(this)
+
+            //ventana.contentView = vista
+            //val video = vista.findViewById<VideoView>(R.id.vvTrailer)
+            //val ruta = infoPelicula.trailer
+            //val uri: Uri = Uri.parse(ruta)
+            //video.setVideoURI(uri)
+            //video.start()
+            //ventana.showAtLocation(vista, Gravity.CENTER, 0, 0)
+            //video.setOnClickListener {
+                //ventana.dismiss()
             }
         }
-    }
 
     override fun onResume() {
         super.onResume()
