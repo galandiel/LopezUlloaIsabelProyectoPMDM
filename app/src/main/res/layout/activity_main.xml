@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contenedorFragments"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryLightColor"
@@ -9,102 +10,5 @@
     android:paddingVertical="@dimen/margen_activity_default_vertical"
     tools:context="activities.MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilEmail"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="@dimen/componente_til_ancho"
-            android:layout_height="@dimen/componente_til_alto"
-            android:layout_marginBottom="@dimen/margen_vertical_entre_edittexts"
-            app:layout_constraintBottom_toTopOf="@+id/glhLogin50"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tietEmail"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/hint_email"
-                android:inputType="textEmailAddress" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilContrasena"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="@dimen/componente_til_ancho"
-            android:layout_height="@dimen/componente_til_alto"
-            android:layout_marginTop="@dimen/margen_vertical_entre_edittexts"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/glhLogin50"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/primaryDarkColor">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tietContrasena"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/hint_contrasena"
-                android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/glvLogin50"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
-
-        <Button
-            android:id="@+id/btAcceder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margen_top_default"
-            android:text="@string/boton_acceder"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tilContrasena" />
-
-        <TextView
-            android:id="@+id/tvCrearCuenta"
-            android:layout_width="@dimen/componente_tv_crearcuenta_ancho"
-            android:layout_height="@dimen/componente_tv_crearcuenta_alto"
-            android:layout_marginTop="@dimen/margen_vertical_entre_edittexts"
-            android:text="@string/texto_crearCuenta"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btAcceder" />
-
-        <TextView
-            android:id="@+id/tvO"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/texto_o"
-            app:layout_constraintBottom_toTopOf="@+id/tvCrearCuenta"
-            app:layout_constraintEnd_toEndOf="@+id/tvCrearCuenta"
-            app:layout_constraintStart_toStartOf="@+id/tvCrearCuenta"
-            app:layout_constraintTop_toBottomOf="@+id/btAcceder" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/glhLogin50"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.5" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="@dimen/imagen_activity_main_ancho"
-            android:layout_height="@dimen/imagen_activity_main_alto"
-            android:src="@drawable/ic_charlie_chaplin_64"
-            app:layout_constraintBottom_toTopOf="@+id/tilEmail"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/hint_imagen"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</FrameLayout>
