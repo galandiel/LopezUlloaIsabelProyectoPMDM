@@ -51,6 +51,7 @@ class InicioFragment : Fragment() {
 
         binding.tvCrearCuenta.setOnClickListener {
             val ft = activity?.supportFragmentManager?.beginTransaction()
+            ft?.addToBackStack(null)
             ft?.replace(R.id.contenedorFragments, RegistroFragment())
             ft?.commit()
         }

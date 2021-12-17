@@ -22,6 +22,7 @@ class RegistroFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentRegistroBinding.inflate(inflater,container, false)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         activity?.title = "Crear Cuenta"
 
@@ -52,7 +53,6 @@ class RegistroFragment : Fragment() {
 
                     val ft = activity?.supportFragmentManager?.beginTransaction()
                     ft?.replace(R.id.contenedorFragments, InicioFragment())
-                    ft?.addToBackStack(null)
                     ft?.commit()
 
                     activity?.onBackPressed()
@@ -61,7 +61,9 @@ class RegistroFragment : Fragment() {
                         .show()
                 }
             }
-
+/*PRE-CIO-SO*/
+            /*PRE-CI-O-SO*/
+            /*Non sei se existe diptongo/hiato*/
         }
 
         return binding.root
