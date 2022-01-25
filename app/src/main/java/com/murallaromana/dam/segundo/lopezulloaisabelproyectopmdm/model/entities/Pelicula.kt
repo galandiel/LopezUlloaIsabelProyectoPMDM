@@ -1,12 +1,13 @@
 package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities
 
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class Pelicula(
-    var id: Int,
-    var titulo: String,
+    @SerializedName("id") var id: Int,
+    @SerializedName("title") var titulo: String,
     var anno: String,
-    var duracion: String,
+    @SerializedName("runtimeMinutes") var duracion: String,
     var pais: String,
     var director: String,
     var guion: String,
@@ -15,7 +16,7 @@ data class Pelicula(
     var reparto: String,
     var genero: String,
     var sinopsis: String,
-    var nota: String,
+    @SerializedName("rating") var nota: String,
     var imagen: String,
     var trailer : String
 ) : Serializable

@@ -14,4 +14,6 @@ añadir más películas.
 - Añadir película
 - Editar película
 
+// TODO: añadir capturas
+
 
