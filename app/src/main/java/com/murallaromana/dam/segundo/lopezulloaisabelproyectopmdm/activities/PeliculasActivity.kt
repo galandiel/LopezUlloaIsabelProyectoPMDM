@@ -61,8 +61,6 @@ class PeliculasActivity : AppCompatActivity() {
 
     }
 
-
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_peliculas, menu)
         return true
