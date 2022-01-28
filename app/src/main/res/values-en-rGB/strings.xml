@@ -63,4 +63,6 @@
     <string name="mensaje_confirmacion_salir">You\'re about to exit the app, are you sure?</string>
     <string name="mensaje_cerrar_sesion">Logout</string>
     <string name="mensaje_confirmacion_cerrar_sesion">You\'re about to logout, are you sure?</string>
+    <string name="toast_no_iniciado">Login error</string>
+    <string name="toast_no_registrado">Singup error</string>
 </resources>

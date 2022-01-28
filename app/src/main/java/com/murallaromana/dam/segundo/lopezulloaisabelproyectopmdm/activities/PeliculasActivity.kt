@@ -31,18 +31,7 @@ class PeliculasActivity : AppCompatActivity() {
         binding = ActivityPeliculasBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Obtengo los datos de las peliculas
-        val peliculasDao = PeliculasDaoMockImpl()
-        val listaPeliculas = peliculasDao.getAll()
-
-        //Creo los componentes que necesita el RecyclerView
-        val layoutManager = LinearLayoutManager(this)
-        val adapter = ListaPeliculasAdapter(listaPeliculas, this)
-
-        //Asocio el RecyclerView con sus componentes
-        binding.rvListaPeliculas.adapter = adapter
-        binding.rvListaPeliculas.layoutManager = layoutManager
-
+        //Botón para añadir películas
         binding.fabAnadirPelicula.setOnClickListener {
             val intent = Intent(this, AnadirActivity::class.java)
             startActivity(intent)
@@ -52,7 +41,22 @@ class PeliculasActivity : AppCompatActivity() {
         val llamadaApi: Call<List<Pelicula>> = RetrofitClient.apiRetrofit.getPeliculas()
         llamadaApi.enqueue(object: Callback<List<Pelicula>> {
             override fun onResponse(call: Call<List<Pelicula>>, response: Response<List<Pelicula>>) {
-                Toast.makeText(context, response.body().toString(),Toast.LENGTH_SHORT).show()
+
+                //Obtengo los datos de las peliculas
+                val peliculas = response.body()
+
+                if (peliculas != null) {
+                    //Creo los componentes que necesita el RecyclerView
+                    val layoutManager = LinearLayoutManager(context)
+                    val adapter = ListaPeliculasAdapter(peliculas, context)
+
+                    //Asocio el RecyclerView con sus componentes
+                    binding.rvListaPeliculas.adapter = adapter
+                    binding.rvListaPeliculas.layoutManager = layoutManager
+                }
+
+
+                //Toast.makeText(context, response.body().toString(),Toast.LENGTH_SHORT).show()
             }
             override fun onFailure(call: Call<List<Pelicula>>, t: Throwable) {
                 Log.d("prueba", t.message.toString())

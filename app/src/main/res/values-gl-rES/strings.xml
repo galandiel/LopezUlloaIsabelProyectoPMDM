@@ -63,4 +63,6 @@
     <string name="mensaje_confirmacion_salir">Estás a punto de saír da aplicación, estás seguro?</string>
     <string name="mensaje_cerrar_sesion">Pechar sesión</string>
     <string name="mensaje_confirmacion_cerrar_sesion">Estás a punto de pechar sesión, estás seguro?</string>
+    <string name="toast_no_iniciado">Non se puido iniciar sesión</string>
+    <string name="toast_no_registrado">Non se puido rexistrar ó usuario</string>
 </resources>

@@ -52,6 +52,8 @@
     <string name="pantalla_editar">Editar película</string>
 
     <!-- Toasts -->
+    <string name="toast_no_iniciado">No se ha podido iniciar sesión</string>
+    <string name="toast_no_registrado">No se ha podido registrar al usuario</string>
     <string name="toast_introduce_email">Introduce un email</string>
     <string name="toast_introduce_contrasena">Introduce una contraseña</string>
     <string name="toast_contrasena_incorrecta">Contraseña incorrecta</string>
