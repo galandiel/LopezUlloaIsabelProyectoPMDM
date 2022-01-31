@@ -6,6 +6,7 @@ import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface Api {
@@ -17,7 +18,11 @@ interface Api {
     fun iniciar(@Body usuario: Usuario): Call<Token>
 
     @GET("movies")
-    fun getPeliculas(): Call<List<Pelicula>>
+    fun getPeliculas(@Header("Authorization") token: String): Call<List<Pelicula>>
+
+    @POST("movies")
+    fun anadir(@Header("Authorization") token: String,
+               @Body pelicula: Pelicula): Call<Unit>
 
     // TODO: declarar todos los métodos del API siguiendo la documentación.
 

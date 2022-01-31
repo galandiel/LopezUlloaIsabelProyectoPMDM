@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient.apiRetrofit
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities.PeliculasActivity
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.FragmentInicioBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
@@ -56,10 +57,11 @@ class InicioFragment : Fragment() {
 
                 val u = Usuario(null, email, contrasenha)
 
-                val loginCall = RetrofitClient.apiRetrofit.iniciar(u)
+                val loginCall = apiRetrofit.iniciar(u)
 
                 loginCall.enqueue(object: Callback<Token> {
                     override fun onFailure(call: Call<Token>, t: Throwable) {
+                        Toast.makeText(activity, R.string.toast_no_iniciado, Toast.LENGTH_SHORT).show()
                         Log.d("respuesta: onFailure", t.toString())
 
                     }
@@ -71,12 +73,12 @@ class InicioFragment : Fragment() {
                             Toast.makeText(activity, R.string.toast_no_iniciado, Toast.LENGTH_SHORT).show()
 
                         } else {
-                            val token = response.body()?.token.toString()
-                            Log.d("respuesta: token:", token.orEmpty())
 
                             //Guardo en sharedPreferences el token
+                            val token = response.body()?.token.toString()
                             preferences.guardarToken(token)
 
+                            Log.d("respuesta: token:", token.orEmpty())
                             //Inicio nueva activity
                             val intent = Intent(activity, PeliculasActivity::class.java)
                             startActivity(intent)

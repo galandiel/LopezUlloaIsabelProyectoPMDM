@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient.apiRetrofit
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.FragmentRegistroBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Usuario
@@ -69,10 +70,11 @@ class RegistroFragment : Fragment() {
 
                     val u = Usuario(null, email, contrasenhaRegistro)
 
-                    val signupCall = RetrofitClient.apiRetrofit.registrarse(u)
+                    val signupCall = apiRetrofit.registrarse(u)
 
                     signupCall.enqueue(object: Callback<Unit> {
                         override fun onFailure(call: Call<Unit>, t: Throwable) {
+                            Toast.makeText(activity, R.string.toast_no_registrado, Toast.LENGTH_SHORT).show()
                             Log.d("respuesta: onFailure", t.toString())
 
                         }

@@ -5,23 +5,37 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.App.Companion.peliculas
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient.apiRetrofit
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.adapters.ListaPeliculasAdapter
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityAnadirBinding
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class AnadirActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAnadirBinding
+    companion object {
+        lateinit var preferences: Preferences
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAnadirBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -70,9 +84,52 @@ class AnadirActivity : AppCompatActivity() {
                     val dialog = builder.setTitle(R.string.mensaje_guardar_pelicula)
                         .setMessage(R.string.mensaje_guardar_pelicula)
                         .setPositiveButton(R.string.boton_aceptar) { _, _ ->
-                            peliculas.add(
+                            var pelicula = Pelicula(peliculas.size.toString(),
+                                binding.tietAnadirTitulo.text.toString(),
+                                binding.tietAnadirAnno.text.toString(),
+                                binding.tietAnadirDuracion.text.toString(),
+                                binding.tietAnadirPais.text.toString(),
+                                binding.tietAnadirDirector.text.toString(),
+                                binding.tietAnadirGuion.text.toString(),
+                                binding.tietAnadirMusica.text.toString(),
+                                binding.tietAnadirFotografia.text.toString(),
+                                binding.tietAnadirReparto.text.toString(),
+                                binding.tietAnadirGenero.text.toString(),
+                                binding.tietAnadirSinopsis.text.toString(),
+                                binding.tietAnadirNota.text.toString(),
+                                binding.tietAnadirImagen.text.toString(),
+                                binding.tietAnadirTrailer.text.toString())
+
+                            preferences = Preferences(this)
+                            val context = this
+
+                            var token = "Bearer " + preferences.recuperarToken("")
+
+                            val llamadaApi: Call<Unit> = apiRetrofit.anadir(token, pelicula)
+                            llamadaApi.enqueue(object: Callback<Unit> {
+                                override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+
+
+                                    if (response.code() < 200 || response.code() > 299){
+                                        Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
+
+                                    } else {
+                                        Toast.makeText(context, R.string.toast_pelicula_guardada, Toast.LENGTH_SHORT).show()
+                                        finish()
+                                    }
+
+
+                                    //Toast.makeText(context, response.body().toString(),Toast.LENGTH_SHORT).show()
+                                }
+                                override fun onFailure(call: Call<Unit>, t: Throwable) {
+                                    Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
+                                    Log.d("prueba", t.message.toString())
+                                }
+                            })
+
+                            /*peliculas.add(
                                 Pelicula(
-                                    peliculas.size,
+                                    peliculas.size.toString(),
                                     binding.tietAnadirTitulo.text.toString(),
                                     binding.tietAnadirAnno.text.toString(),
                                     binding.tietAnadirDuracion.text.toString(),
@@ -88,10 +145,8 @@ class AnadirActivity : AppCompatActivity() {
                                     binding.tietAnadirImagen.text.toString(),
                                     binding.tietAnadirTrailer.text.toString()
                                 )
-                            )
-                            Toast.makeText(this, R.string.toast_pelicula_guardada, Toast.LENGTH_SHORT)
-                                .show()
-                            finish()
+                            )*/
+
                         }
                         .setNegativeButton(R.string.boton_cancelar, null)
                         .create()

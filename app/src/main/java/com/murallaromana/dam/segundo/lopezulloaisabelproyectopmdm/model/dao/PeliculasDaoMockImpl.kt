@@ -11,7 +11,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
         lista.addAll(
             listOf(
                 Pelicula(
-                    0,
+                    "0",
                     "Origen",
                     "2010",
                     "148 min.",
@@ -43,7 +43,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "https://www.youtube.com/watch?v=YoHD9XEInc0"
                 ),
                 Pelicula(
-                    1,
+                    "1",
                     "Dunquerque",
                     "2017",
                     "107 min.",
@@ -75,7 +75,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "https://www.youtube.com/watch?v=F-eMt3SrfFU"
                 ),
                 Pelicula(
-                    2,
+                    "2",
                     "Múltiple",
                     "2016",
                     "116 min.",
@@ -104,7 +104,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "https://www.youtube.com/watch?v=84TouqfIsiI"
                 ),
                 Pelicula(
-                    3,
+                    "3",
                     "La joven del agua",
                     "2006",
                     "110 min.",
@@ -132,7 +132,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "https://www.youtube.com/watch?v=pKR1mfrfGAo"
                 ),
                 Pelicula(
-                    4,
+                    "4",
                     "Mulán",
                     "1998",
                     "88 min.",
