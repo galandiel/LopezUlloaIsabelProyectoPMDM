@@ -4,10 +4,7 @@ import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Token
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Usuario
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface Api {
 
@@ -24,8 +21,12 @@ interface Api {
     fun anadir(@Header("Authorization") token: String,
                @Body pelicula: Pelicula): Call<Unit>
 
-    // TODO: declarar todos los métodos del API siguiendo la documentación.
+    @PUT("movies")
+    fun editar(@Header("Authorization") token: String,
+               @Body pelicula: Pelicula): Call<Unit>
 
-
+    @DELETE("movies")
+    fun eliminar(@Header("Authorization") token: String,
+                 @Body pelicula: Pelicula): Call<Unit>
 
 }

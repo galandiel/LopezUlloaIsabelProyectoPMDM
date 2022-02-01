@@ -84,7 +84,7 @@ class AnadirActivity : AppCompatActivity() {
                     val dialog = builder.setTitle(R.string.mensaje_guardar_pelicula)
                         .setMessage(R.string.mensaje_guardar_pelicula)
                         .setPositiveButton(R.string.boton_aceptar) { _, _ ->
-                            var pelicula = Pelicula(peliculas.size.toString(),
+                            var pelicula = Pelicula(null,
                                 binding.tietAnadirTitulo.text.toString(),
                                 binding.tietAnadirAnno.text.toString(),
                                 binding.tietAnadirDuracion.text.toString(),
@@ -93,7 +93,8 @@ class AnadirActivity : AppCompatActivity() {
                                 binding.tietAnadirGuion.text.toString(),
                                 binding.tietAnadirMusica.text.toString(),
                                 binding.tietAnadirFotografia.text.toString(),
-                                binding.tietAnadirReparto.text.toString(),
+                                //binding.tietAnadirReparto.text.toString(),
+                                null,
                                 binding.tietAnadirGenero.text.toString(),
                                 binding.tietAnadirSinopsis.text.toString(),
                                 binding.tietAnadirNota.text.toString(),
