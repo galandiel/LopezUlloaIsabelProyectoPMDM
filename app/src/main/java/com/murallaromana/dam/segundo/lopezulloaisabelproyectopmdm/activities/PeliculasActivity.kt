@@ -9,15 +9,11 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.App
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient.apiRetrofit
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.adapters.ListaPeliculasAdapter
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityPeliculasBinding
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.PeliculasDaoMockImpl
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
 import retrofit2.Call
@@ -43,8 +39,6 @@ class PeliculasActivity : AppCompatActivity() {
             val intent = Intent(this, AnadirActivity::class.java)
             startActivity(intent)
         }
-
-
 
     }
 
@@ -118,17 +112,12 @@ class PeliculasActivity : AppCompatActivity() {
                     binding.rvListaPeliculas.layoutManager = layoutManager
                 }
 
-
-                //Toast.makeText(context, response.body().toString(),Toast.LENGTH_SHORT).show()
             }
             override fun onFailure(call: Call<List<Pelicula>>, t: Throwable) {
                 Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
                 Log.d("prueba", t.message.toString())
             }
         })
-
-        /*val adapter = ListaPeliculasAdapter(App.peliculas, this)
-        binding.rvListaPeliculas.adapter = adapter*/
     }
 
 }

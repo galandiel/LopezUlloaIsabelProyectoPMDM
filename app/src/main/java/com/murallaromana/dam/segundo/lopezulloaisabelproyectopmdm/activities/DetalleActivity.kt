@@ -8,14 +8,12 @@ import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.App.Companion.peliculas
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityDetalleBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
 import com.squareup.picasso.Picasso
 import android.view.*
 import android.widget.LinearLayout
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient.apiRetrofit
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
 import retrofit2.Call
@@ -143,11 +141,6 @@ class DetalleActivity : AppCompatActivity() {
                             }
                         })
 
-
-                        //¿?¿?¿?¿?¿?
-                        /*peliculas.remove(infoPelicula)
-                        Toast.makeText(this, R.string.toast_pelicula_eliminada, Toast.LENGTH_SHORT).show()*/
-                        //finish()
                     }
                     .setNegativeButton(R.string.boton_cancelar, null)
                     .create()
@@ -159,10 +152,5 @@ class DetalleActivity : AppCompatActivity() {
             }
         }
     }
-
-    //override fun onStop() {
-        //super.onStop()
-        //onBackPressed()
-    //}
 
 }

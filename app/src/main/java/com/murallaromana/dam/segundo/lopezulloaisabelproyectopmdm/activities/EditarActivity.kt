@@ -67,7 +67,6 @@ class EditarActivity : AppCompatActivity() {
                     binding.tietAnadirTrailer.setText(pelicula.trailer)
                 }
 
-                //Toast.makeText(context, response.body().toString(),Toast.LENGTH_SHORT).show()
             }
             override fun onFailure(call: Call<Pelicula>, t: Throwable) {
                 Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
@@ -140,13 +139,8 @@ class EditarActivity : AppCompatActivity() {
                                     } else {
                                         Toast.makeText(context, R.string.toast_pelicula_guardada, Toast.LENGTH_SHORT).show()
                                         finish()
-                                        /*val intent = Intent(context, PeliculasActivity::class.java)
-                                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                                        startActivity(intent)*/
                                     }
 
-
-                                    //Toast.makeText(context, response.body().toString(),Toast.LENGTH_SHORT).show()
                                 }
                                 override fun onFailure(call: Call<Unit>, t: Throwable) {
                                     Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()

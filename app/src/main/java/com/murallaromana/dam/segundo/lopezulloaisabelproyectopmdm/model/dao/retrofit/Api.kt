@@ -17,6 +17,10 @@ interface Api {
     @GET("movies")
     fun getPeliculas(@Header("Authorization") token: String): Call<List<Pelicula>>
 
+    @GET("movies/{id}")
+    fun getById(@Header("Authorization") token: String,
+                @Path("id") id: String?): Call<Pelicula>
+
     @POST("movies")
     fun anadir(@Header("Authorization") token: String,
                @Body pelicula: Pelicula): Call<Unit>
@@ -24,10 +28,6 @@ interface Api {
     @PUT("movies")
     fun editar(@Header("Authorization") token: String,
                @Body pelicula: Pelicula): Call<Unit>
-
-    @GET("movies/{id}")
-    fun getById(@Header("Authorization") token: String,
-                @Path("id") id: String?): Call<Pelicula>
 
     @DELETE("movies/{id}")
     fun eliminar(@Header("Authorization") token: String,

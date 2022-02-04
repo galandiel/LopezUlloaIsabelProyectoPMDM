@@ -33,11 +33,6 @@ class InicioFragment : Fragment() {
         binding = FragmentInicioBinding.inflate(inflater, container, false)
         con = requireContext().applicationContext
 
-        /*val sharedPref = activity?.getSharedPreferences("datos", AppCompatActivity.MODE_PRIVATE)
-        val email = sharedPref?.getString("email", "")
-        val contrasena = sharedPref?.getString("contrasena", "")
-        binding.tietEmail.setText(email?.trim())*/
-
         activity?.title = "FilmGoer"
 
         preferences = Preferences(con)
@@ -103,8 +98,7 @@ class InicioFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         var email = preferences.recuperarEmail("").toString()
-        if (email != null) {
-            binding.tietEmail.setText(email)
-        }
+        binding.tietEmail.setText(email)
+
     }
 }

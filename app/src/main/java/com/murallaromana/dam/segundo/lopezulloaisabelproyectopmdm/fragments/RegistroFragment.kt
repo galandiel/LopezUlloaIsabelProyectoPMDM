@@ -59,14 +59,6 @@ class RegistroFragment : Fragment() {
                 Toast.makeText(activity, R.string.toast_email_no_valido, Toast.LENGTH_SHORT).show()
             }
             else if (contrasenhaRegistro.equals(contrasenhaValidar)) {
-                    /*val sharedPref = activity?.getSharedPreferences(
-                        "datos",
-                        Context.MODE_PRIVATE
-                    )*/
-                    /*val editor = sharedPref?.edit()
-                    editor?.putString("email", binding.tietEmail.text.toString())
-                    editor?.putString("contrasena", binding.tietContrasenaRegistro.text.toString())
-                    editor?.apply()*/
 
                     val u = Usuario(null, email, contrasenhaRegistro)
 
@@ -97,7 +89,8 @@ class RegistroFragment : Fragment() {
                     Toast.makeText(activity, R.string.toast_contrasenas_no_coinciden, Toast.LENGTH_SHORT)
                         .show()
                 }
-/*PRE-CIO-SO*/
+
+            /*PRE-CIO-SO*/
             /*PRE-CI-O-SO*/
             /*Non sei se existe diptongo/hiato*/
         }
