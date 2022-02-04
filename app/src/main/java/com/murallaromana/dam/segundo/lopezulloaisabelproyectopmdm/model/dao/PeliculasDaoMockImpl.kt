@@ -10,7 +10,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
     override fun getAll(): ArrayList<Pelicula> {
         lista.addAll(
             listOf(
-                Pelicula(
+                /*Pelicula(
                     "0",
                     "Origen",
                     "2010",
@@ -154,7 +154,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "6.5",
                     "https://www.themoviedb.org/t/p/w1280/towmTJ0k29quKI9IDnOZKAAtQx.jpg",
                     "https://www.youtube.com/watch?v=N9FbeVTWrKM"
-                )
+                )*/
             )
         )
         return lista

@@ -34,8 +34,6 @@ class AnadirActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAnadirBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -84,22 +82,9 @@ class AnadirActivity : AppCompatActivity() {
                     val dialog = builder.setTitle(R.string.mensaje_guardar_pelicula)
                         .setMessage(R.string.mensaje_guardar_pelicula)
                         .setPositiveButton(R.string.boton_aceptar) { _, _ ->
-                            var pelicula = Pelicula(null,
-                                binding.tietAnadirTitulo.text.toString(),
-                                binding.tietAnadirAnno.text.toString(),
-                                binding.tietAnadirDuracion.text.toString(),
-                                binding.tietAnadirPais.text.toString(),
-                                binding.tietAnadirDirector.text.toString(),
-                                binding.tietAnadirGuion.text.toString(),
-                                binding.tietAnadirMusica.text.toString(),
-                                binding.tietAnadirFotografia.text.toString(),
-                                //binding.tietAnadirReparto.text.toString(),
-                                null,
-                                binding.tietAnadirGenero.text.toString(),
-                                binding.tietAnadirSinopsis.text.toString(),
-                                binding.tietAnadirNota.text.toString(),
-                                binding.tietAnadirImagen.text.toString(),
-                                binding.tietAnadirTrailer.text.toString())
+                            var pelicula = Pelicula(
+                                null, titulo, anno, duracion, pais, director, guion, musica,
+                                fotografia, null, genero, sinopsis, nota, imagen, trailer)
 
                             preferences = Preferences(this)
                             val context = this

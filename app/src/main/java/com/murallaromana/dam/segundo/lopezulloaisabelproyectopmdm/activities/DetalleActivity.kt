@@ -3,6 +3,7 @@ package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -14,12 +15,19 @@ import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities
 import com.squareup.picasso.Picasso
 import android.view.*
 import android.widget.LinearLayout
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient.apiRetrofit
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class DetalleActivity : AppCompatActivity() {
 
     companion object {
         lateinit var infoPelicula: Pelicula
+        lateinit var preferences: Preferences
     }
 
     private lateinit var binding: ActivityDetalleBinding
@@ -106,9 +114,40 @@ class DetalleActivity : AppCompatActivity() {
                 val dialog = builder.setTitle(R.string.mensaje_borrar_pelicula)
                     .setMessage(R.string.mensaje_confirmacion_eliminar)
                     .setPositiveButton(R.string.boton_aceptar) { _, _ ->
-                        peliculas.remove(infoPelicula)
-                        Toast.makeText(this, R.string.toast_pelicula_eliminada, Toast.LENGTH_SHORT).show()
-                        finish()
+
+                        preferences = Preferences(this)
+                        val context = this
+
+                        var token = "Bearer " + preferences.recuperarToken("")
+
+
+                        val llamadaApi: Call<Unit> = apiRetrofit.eliminar(token, infoPelicula.id)
+                        llamadaApi.enqueue(object: Callback<Unit> {
+                            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                                val peliculas = response.body()
+                                if (response.code() < 200 || response.code() > 299 || peliculas == null){
+                                    Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
+
+                                } else {
+
+                                    Toast.makeText(context, R.string.toast_pelicula_eliminada, Toast.LENGTH_SHORT).show()
+                                    finish()
+                                }
+
+
+                                //Toast.makeText(context, response.body().toString(),Toast.LENGTH_SHORT).show()
+                            }
+                            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                                Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
+                                Log.d("prueba", t.message.toString())
+                            }
+                        })
+
+
+                        //¿?¿?¿?¿?¿?
+                        /*peliculas.remove(infoPelicula)
+                        Toast.makeText(this, R.string.toast_pelicula_eliminada, Toast.LENGTH_SHORT).show()*/
+                        //finish()
                     }
                     .setNegativeButton(R.string.boton_cancelar, null)
                     .create()

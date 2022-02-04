@@ -25,8 +25,8 @@ interface Api {
     fun editar(@Header("Authorization") token: String,
                @Body pelicula: Pelicula): Call<Unit>
 
-    @DELETE("movies")
+    @DELETE("movies/{id}")
     fun eliminar(@Header("Authorization") token: String,
-                 @Body pelicula: Pelicula): Call<Unit>
+                 @Path("id") id: String?): Call<Unit>
 
 }
