@@ -5,44 +5,75 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.App.Companion.peliculas
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient.apiRetrofit
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityEditarBinding
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class EditarActivity : AppCompatActivity() {
 
     companion object {
-        lateinit var infoPelicula: Pelicula
+        lateinit var id: String
+        lateinit var preferences: Preferences
     }
 
     private lateinit var binding: ActivityEditarBinding
+    private lateinit var pelicula: Pelicula
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditarBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        infoPelicula = intent.extras?.get("pelicula") as Pelicula
+        id = intent.extras?.get("id") as String
 
-        binding.tietAnadirTitulo.setText(infoPelicula.titulo)
-        binding.tietAnadirAnno.setText(infoPelicula.anno)
-        binding.tietAnadirDuracion.setText(infoPelicula.duracion)
-        binding.tietAnadirPais.setText(infoPelicula.pais)
-        binding.tietAnadirDirector.setText(infoPelicula.director)
-        binding.tietAnadirGuion.setText(infoPelicula.guion)
-        binding.tietAnadirMusica.setText(infoPelicula.musica)
-        binding.tietAnadirFotografia.setText(infoPelicula.fotografia)
-        binding.tietAnadirReparto.setText(infoPelicula.reparto)
-        binding.tietAnadirGenero.setText(infoPelicula.genero)
-        binding.tietAnadirSinopsis.setText(infoPelicula.sinopsis)
-        binding.tietAnadirNota.setText(infoPelicula.nota)
-        binding.tietAnadirImagen.setText(infoPelicula.imagen)
-        binding.tietAnadirTrailer.setText(infoPelicula.trailer)
+        preferences = Preferences(this)
+        val context = this
+
+        val token = "Bearer " + preferences.recuperarToken("")
+
+
+        val llamadaApi: Call<Pelicula> = apiRetrofit.getById(token, id)
+        llamadaApi.enqueue(object: Callback<Pelicula> {
+            override fun onResponse(call: Call<Pelicula>, response: Response<Pelicula>) {
+                pelicula = response.body()!!
+                if (response.code() < 200 || response.code() > 299){
+                    Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
+
+                } else {
+
+                    binding.tietAnadirTitulo.setText(pelicula.titulo)
+                    binding.tietAnadirAnno.setText(pelicula.anno)
+                    binding.tietAnadirDuracion.setText(pelicula.duracion)
+                    binding.tietAnadirPais.setText(pelicula.pais)
+                    binding.tietAnadirDirector.setText(pelicula.director)
+                    binding.tietAnadirGuion.setText(pelicula.guion)
+                    binding.tietAnadirMusica.setText(pelicula.musica)
+                    binding.tietAnadirFotografia.setText(pelicula.fotografia)
+                    binding.tietAnadirReparto.setText(pelicula.reparto)
+                    binding.tietAnadirGenero.setText(pelicula.genero)
+                    binding.tietAnadirSinopsis.setText(pelicula.sinopsis)
+                    binding.tietAnadirNota.setText(pelicula.nota)
+                    binding.tietAnadirImagen.setText(pelicula.imagen)
+                    binding.tietAnadirTrailer.setText(pelicula.trailer)
+                }
+
+                //Toast.makeText(context, response.body().toString(),Toast.LENGTH_SHORT).show()
+            }
+            override fun onFailure(call: Call<Pelicula>, t: Throwable) {
+                Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
+                Log.d("prueba", t.message.toString())
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -90,33 +121,38 @@ class EditarActivity : AppCompatActivity() {
                     val dialog = builder.setTitle(R.string.mensaje_guardar_pelicula)
                         .setMessage(R.string.mensaje_guardar_pelicula)
                         .setPositiveButton(R.string.boton_aceptar) { _, _ ->
-                            val indicePelicula = peliculas.indexOf(infoPelicula)
                             val peliculaEditada = Pelicula(
-                                infoPelicula.id,
-                                titulo,
-                                anno,
-                                duracion,
-                                pais,
-                                director,
-                                guion,
-                                musica,
-                                fotografia,
-                                reparto,
-                                genero,
-                                sinopsis,
-                                nota,
-                                imagen,
-                                trailer
-                            )
-                            peliculas[indicePelicula] = peliculaEditada
-                            Toast.makeText(
-                                this,
-                                R.string.toast_pelicula_guardada,
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            val intent = Intent(this, PeliculasActivity::class.java)
-                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                            startActivity(intent)
+                                pelicula.id, titulo, anno, duracion, pais, director, guion,
+                                musica, fotografia, reparto, genero, sinopsis, nota, imagen, trailer)
+
+                            preferences = Preferences(this)
+                            val context = this
+
+                            val token = "Bearer " + preferences.recuperarToken("")
+
+                            val llamadaApi: Call<Unit> = apiRetrofit.editar(token, peliculaEditada)
+                            llamadaApi.enqueue(object: Callback<Unit> {
+                                override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+
+                                    if (response.code() < 200 || response.code() > 299){
+                                        Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
+
+                                    } else {
+                                        Toast.makeText(context, R.string.toast_pelicula_guardada, Toast.LENGTH_SHORT).show()
+                                        finish()
+                                        /*val intent = Intent(context, PeliculasActivity::class.java)
+                                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                                        startActivity(intent)*/
+                                    }
+
+
+                                    //Toast.makeText(context, response.body().toString(),Toast.LENGTH_SHORT).show()
+                                }
+                                override fun onFailure(call: Call<Unit>, t: Throwable) {
+                                    Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
+                                    Log.d("prueba", t.message.toString())
+                                }
+                            })
                         }
                         .setNegativeButton(R.string.boton_cancelar, null)
                         .create()

@@ -105,7 +105,7 @@ class DetalleActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.accion_editar -> {
                 val intent = Intent(this, EditarActivity::class.java)
-                intent.putExtra("pelicula", infoPelicula)
+                intent.putExtra("id", infoPelicula.id)
                 startActivity(intent)
                 return true
             }
