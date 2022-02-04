@@ -14,6 +14,14 @@ añadir más películas.
 - Añadir película
 - Editar película
 
-// TODO: añadir capturas
+#### Imágenes de la App
 
+#### Pantalla de inicio:
+![Imagen pantalla login](https://github.com/galandiel/LopezUlloaIsabelProyectoPMDM/blob/main/images/inicio.png)
+
+### Pantalla de la lista de películas:
+![Imagen pantalla películas](https://github.com/galandiel/LopezUlloaIsabelProyectoPMDM/blob/main/images/listaPeliculas.png)
+
+### Pantalla de detalles de la película:
+![Imagen pantalla detalles](https://github.com/galandiel/LopezUlloaIsabelProyectoPMDM/blob/main/images/peliculaDetalle.png)
 
