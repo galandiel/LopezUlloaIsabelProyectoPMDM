@@ -12,6 +12,7 @@ import android.widget.Toast
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient.apiRetrofit
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities.MainActivity
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities.PeliculasActivity
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.FragmentInicioBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
@@ -76,6 +77,7 @@ class InicioFragment : Fragment() {
                             Log.d("respuesta: token:", token.orEmpty())
                             //Inicio nueva activity
                             val intent = Intent(activity, PeliculasActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                             startActivity(intent)
                         }
 

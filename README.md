@@ -14,6 +14,12 @@ añadir más películas.
 - Añadir película
 - Editar película
 
+#### Bibliotecas utilizadas:
+
+- Picasso
+- Cardview
+- Retrofit
+
 #### Imágenes de la App
 
 #### Pantalla de inicio:

@@ -17,8 +17,10 @@ class ListaPeliculasAdapter(private val peliculas: List<Pelicula>, val context: 
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(pelicula: Pelicula) {
             itemBinding.tvTitle.text = pelicula.titulo
-            val nota = pelicula.nota.toFloat()/2
-            itemBinding.ratingBar.rating = nota
+            if (pelicula.nota != null) {
+                val nota = pelicula.nota!!.toFloat()/2
+                itemBinding.ratingBar.rating = nota
+            }
 
             Picasso.get().load(pelicula.imagen).into(itemBinding.ivImage)
 

@@ -59,7 +59,7 @@ class EditarActivity : AppCompatActivity() {
                     binding.tietAnadirGuion.setText(pelicula.guion)
                     binding.tietAnadirMusica.setText(pelicula.musica)
                     binding.tietAnadirFotografia.setText(pelicula.fotografia)
-                    binding.tietAnadirReparto.setText(pelicula.reparto)
+                    //binding.tietAnadirReparto.setText(pelicula.reparto)
                     binding.tietAnadirGenero.setText(pelicula.genero)
                     binding.tietAnadirSinopsis.setText(pelicula.sinopsis)
                     binding.tietAnadirNota.setText(pelicula.nota)
@@ -92,7 +92,7 @@ class EditarActivity : AppCompatActivity() {
                 val guion = binding.tietAnadirGuion.text.toString().trim()
                 val musica = binding.tietAnadirMusica.text.toString().trim()
                 val fotografia = binding.tietAnadirFotografia.text.toString().trim()
-                val reparto = binding.tietAnadirReparto.text.toString().trim()
+                //val reparto = binding.tietAnadirReparto.text.toString().trim()
                 val genero = binding.tietAnadirGenero.text.toString().trim()
                 val sinopsis = binding.tietAnadirSinopsis.text.toString().trim()
                 val nota = binding.tietAnadirNota.text.toString().trim()
@@ -107,7 +107,7 @@ class EditarActivity : AppCompatActivity() {
                     TextUtils.isEmpty(guion) ||
                     TextUtils.isEmpty(musica) ||
                     TextUtils.isEmpty(fotografia) ||
-                    TextUtils.isEmpty(reparto) ||
+                    //TextUtils.isEmpty(reparto) ||
                     TextUtils.isEmpty(genero) ||
                     TextUtils.isEmpty(sinopsis) ||
                     TextUtils.isEmpty(nota) ||
@@ -122,7 +122,7 @@ class EditarActivity : AppCompatActivity() {
                         .setPositiveButton(R.string.boton_aceptar) { _, _ ->
                             val peliculaEditada = Pelicula(
                                 pelicula.id, titulo, anno, duracion, pais, director, guion,
-                                musica, fotografia, reparto, genero, sinopsis, nota, imagen, trailer)
+                                musica, fotografia, genero, sinopsis, nota, imagen, trailer)
 
                             preferences = Preferences(this)
                             val context = this
@@ -138,7 +138,9 @@ class EditarActivity : AppCompatActivity() {
 
                                     } else {
                                         Toast.makeText(context, R.string.toast_pelicula_guardada, Toast.LENGTH_SHORT).show()
-                                        finish()
+                                        val intent = Intent(context, PeliculasActivity::class.java)
+                                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                                        startActivity(intent)
                                     }
 
                                 }

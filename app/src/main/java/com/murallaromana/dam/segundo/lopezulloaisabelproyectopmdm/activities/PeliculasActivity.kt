@@ -1,6 +1,5 @@
 package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -56,7 +55,6 @@ class PeliculasActivity : AppCompatActivity() {
                     .setPositiveButton(R.string.boton_aceptar) { _, _ ->
                         val intent = Intent(this, MainActivity::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                        intent.putExtra("EXIT", true)
                         startActivity(intent)
                     }
                     .setNegativeButton(R.string.boton_cancelar, null)

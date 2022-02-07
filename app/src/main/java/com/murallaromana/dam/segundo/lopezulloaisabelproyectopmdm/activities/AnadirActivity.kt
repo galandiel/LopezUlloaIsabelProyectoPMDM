@@ -50,7 +50,7 @@ class AnadirActivity : AppCompatActivity() {
                 val guion = binding.tietAnadirGuion.text.toString().trim()
                 val musica = binding.tietAnadirMusica.text.toString().trim()
                 val fotografia = binding.tietAnadirFotografia.text.toString().trim()
-                val reparto = binding.tietAnadirReparto.text.toString().trim()
+                //val reparto = binding.tietAnadirReparto.text.toString().trim()
                 val genero = binding.tietAnadirGenero.text.toString().trim()
                 val sinopsis = binding.tietAnadirSinopsis.text.toString().trim()
                 val nota = binding.tietAnadirNota.text.toString().trim()
@@ -65,7 +65,7 @@ class AnadirActivity : AppCompatActivity() {
                     TextUtils.isEmpty(guion) ||
                     TextUtils.isEmpty(musica) ||
                     TextUtils.isEmpty(fotografia) ||
-                    TextUtils.isEmpty(reparto) ||
+                    //TextUtils.isEmpty(reparto) ||
                     TextUtils.isEmpty(genero) ||
                     TextUtils.isEmpty(sinopsis) ||
                     TextUtils.isEmpty(nota) ||
@@ -80,7 +80,7 @@ class AnadirActivity : AppCompatActivity() {
                         .setPositiveButton(R.string.boton_aceptar) { _, _ ->
                             var pelicula = Pelicula(
                                 null, titulo, anno, duracion, pais, director, guion, musica,
-                                fotografia, null, genero, sinopsis, nota, imagen, trailer)
+                                fotografia, genero, sinopsis, nota, imagen, trailer)
 
                             preferences = Preferences(this)
                             val context = this

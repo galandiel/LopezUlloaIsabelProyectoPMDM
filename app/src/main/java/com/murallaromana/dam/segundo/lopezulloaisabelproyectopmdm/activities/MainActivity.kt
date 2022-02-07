@@ -35,13 +35,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        if (intent.getBooleanExtra("EXIT", false)) {
-            finish()
-        }
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home){
             supportFragmentManager.popBackStack()

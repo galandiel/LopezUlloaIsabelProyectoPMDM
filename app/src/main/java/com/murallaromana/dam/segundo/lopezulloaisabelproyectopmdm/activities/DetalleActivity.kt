@@ -38,10 +38,7 @@ class DetalleActivity : AppCompatActivity() {
 
         binding.fabPlay.setOnClickListener {
             val inflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            val vista = inflater.inflate(
-                R.layout.layout_video,
-                null
-            )
+            val vista = inflater.inflate(R.layout.layout_video,null)
 
             val ancho = LinearLayout.LayoutParams.WRAP_CONTENT
             val alto = LinearLayout.LayoutParams.WRAP_CONTENT
@@ -84,13 +81,13 @@ class DetalleActivity : AppCompatActivity() {
         binding.tvDetalleGuion.text = infoPelicula.guion
         binding.tvDetalleMusica.text = infoPelicula.musica
         binding.tvDetalleFotografia.text = infoPelicula.fotografia
-        binding.tvDetalleReparto.text = infoPelicula.reparto
+        //binding.tvDetalleReparto.text = infoPelicula.reparto
         binding.tvDetalleGenero.text = infoPelicula.genero
         binding.tvDetalleSinopsis.text = infoPelicula.sinopsis
 
         Picasso.get().load(infoPelicula.imagen).into(binding.ivDetalleImagen)
 
-        val nota = infoPelicula.nota.toFloat()/2
+        val nota = infoPelicula.nota!!.toFloat()/2
         binding.ratingBarDetalle.rating = nota
     }
 
