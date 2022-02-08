@@ -89,7 +89,7 @@ class PeliculasActivity : AppCompatActivity() {
         preferences = Preferences(this)
         val context = this
 
-        var token = "Bearer " + preferences.recuperarToken("")
+        val token = "Bearer " + preferences.recuperarToken("")
 
         val llamadaApi: Call<List<Pelicula>> = apiRetrofit.getPeliculas(token)
         llamadaApi.enqueue(object: Callback<List<Pelicula>> {

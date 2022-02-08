@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient.apiRetrofit
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.FragmentRegistroBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
@@ -41,11 +40,11 @@ class RegistroFragment : Fragment() {
 
         binding.btCrearCuenta.setOnClickListener {
 
-            var usuario = binding.tietUsuario.text.toString().trim()
-            var email = binding.tietEmail.text.toString().trim()
-            var telefono = binding.tietTelefono.text.toString().trim()
-            var contrasenhaRegistro = binding.tietContrasenaRegistro.text.toString().trim()
-            var contrasenhaValidar = binding.tietValidarContrasena.text.toString().trim()
+            val usuario = binding.tietUsuario.text.toString().trim()
+            val email = binding.tietEmail.text.toString().trim()
+            val telefono = binding.tietTelefono.text.toString().trim()
+            val contrasenhaRegistro = binding.tietContrasenaRegistro.text.toString().trim()
+            val contrasenhaValidar = binding.tietValidarContrasena.text.toString().trim()
 
             if (TextUtils.isEmpty(usuario) ||
                 TextUtils.isEmpty(email) ||

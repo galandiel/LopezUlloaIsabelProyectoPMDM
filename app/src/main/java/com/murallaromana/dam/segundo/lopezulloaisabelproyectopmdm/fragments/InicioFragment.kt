@@ -10,9 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient.apiRetrofit
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities.MainActivity
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities.PeliculasActivity
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.FragmentInicioBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
@@ -48,14 +46,19 @@ class InicioFragment : Fragment() {
             startActivity(intent)
         }
             binding.btAcceder.setOnClickListener {
-
-                var email = binding.tietEmail.text.toString().trim()
-                var contrasenha = binding.tietContrasena.text.toString().trim()
+                binding.btAcceder.isEnabled = false
+                binding.pbCargando.visibility = View.VISIBLE
+                val email = binding.tietEmail.text.toString().trim()
+                val contrasenha = binding.tietContrasena.text.toString().trim()
 
                 if (email == "") {
                     Toast.makeText(activity, R.string.toast_introduce_email, Toast.LENGTH_SHORT)
                         .show()
+                    binding.btAcceder.isEnabled = true
+                    binding.pbCargando.visibility = View.GONE
                 } else if (contrasenha == "") {
+                    binding.btAcceder.isEnabled = true
+                    binding.pbCargando.visibility = View.GONE
                     Toast.makeText(
                         activity,
                         R.string.toast_introduce_contrasena,
@@ -71,6 +74,8 @@ class InicioFragment : Fragment() {
                         override fun onFailure(call: Call<Token>, t: Throwable) {
                             Toast.makeText(activity, R.string.toast_no_iniciado, Toast.LENGTH_SHORT)
                                 .show()
+                            binding.btAcceder.isEnabled = true
+                            binding.pbCargando.visibility = View.GONE
                             Log.d("respuesta: onFailure", t.toString())
 
                         }
@@ -80,12 +85,13 @@ class InicioFragment : Fragment() {
 
                             if (response.code() < 200 || response.code() > 299) {
                                 Toast.makeText(activity, R.string.toast_no_iniciado,Toast.LENGTH_SHORT).show()
+                                binding.btAcceder.isEnabled = true
+                                binding.pbCargando.visibility = View.GONE
                             } else {
                                 //Guardo en sharedPreferences el token
                                 val token = response.body()?.token.toString()
                                 preferences.guardarToken(token)
 
-                                Log.d("respuesta: token:", token.orEmpty())
                                 //Inicio nueva activity
                                 val intent = Intent(activity, PeliculasActivity::class.java)
                                 intent.flags =
@@ -99,7 +105,6 @@ class InicioFragment : Fragment() {
             }
 
         binding.tvCrearCuenta.setOnClickListener {
-            binding.btAcceder.isEnabled = false
             val ft = activity?.supportFragmentManager?.beginTransaction()
             ft?.addToBackStack(null)
             ft?.replace(R.id.contenedorFragments, RegistroFragment())
@@ -111,7 +116,7 @@ class InicioFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        var email = preferences.recuperarEmail("").toString()
+        val email = preferences.recuperarEmail("").toString()
         binding.tietEmail.setText(email)
 
     }

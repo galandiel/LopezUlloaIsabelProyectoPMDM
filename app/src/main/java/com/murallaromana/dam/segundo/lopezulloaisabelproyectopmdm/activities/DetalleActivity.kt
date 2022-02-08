@@ -82,7 +82,6 @@ class DetalleActivity : AppCompatActivity() {
         binding.tvDetalleGuion.text = infoPelicula.guion
         binding.tvDetalleMusica.text = infoPelicula.musica
         binding.tvDetalleFotografia.text = infoPelicula.fotografia
-        //binding.tvDetalleReparto.text = infoPelicula.reparto
         binding.tvDetalleGenero.text = infoPelicula.genero
         binding.tvDetalleSinopsis.text = infoPelicula.sinopsis
 
@@ -114,8 +113,7 @@ class DetalleActivity : AppCompatActivity() {
                         preferences = Preferences(this)
                         val context = this
 
-                        var token = "Bearer " + preferences.recuperarToken("")
-
+                        val token = "Bearer " + preferences.recuperarToken("")
 
                         val llamadaApi: Call<Unit> = apiRetrofit.eliminar(token, infoPelicula.id)
                         llamadaApi.enqueue(object: Callback<Unit> {
@@ -127,20 +125,15 @@ class DetalleActivity : AppCompatActivity() {
                                         ValidacionesUtils().reiniciarApp(context)
                                     }
                                 } else {
-
                                     Toast.makeText(context, R.string.toast_pelicula_eliminada, Toast.LENGTH_SHORT).show()
                                     finish()
                                 }
-
-
-                                //Toast.makeText(context, response.body().toString(),Toast.LENGTH_SHORT).show()
                             }
                             override fun onFailure(call: Call<Unit>, t: Throwable) {
                                 Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
                                 Log.d("prueba", t.message.toString())
                             }
                         })
-
                     }
                     .setNegativeButton(R.string.boton_cancelar, null)
                     .create()

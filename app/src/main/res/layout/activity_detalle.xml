@@ -171,27 +171,6 @@
             tools:text="Fotografía" />
 
         <TextView
-            android:id="@+id/tvLabelReparto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margen_lista"
-            android:text="@string/reparto"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvDetalleReparto" />
-
-        <TextView
-            android:id="@+id/tvDetalleReparto"
-            android:layout_width="@dimen/tamano_default"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margen_lista"
-            android:layout_marginTop="@dimen/margen_lista"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/glvDetalle25"
-            app:layout_constraintTop_toBottomOf="@+id/tvDetalleFotografia"
-            tools:text="Reparto" />
-
-        <TextView
             android:id="@+id/tvLabelGenero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -209,7 +188,7 @@
             android:layout_marginTop="@dimen/margen_lista"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/glvDetalle25"
-            app:layout_constraintTop_toBottomOf="@+id/tvDetalleReparto"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetalleFotografia"
             tools:text="Género" />
 
         <TextView

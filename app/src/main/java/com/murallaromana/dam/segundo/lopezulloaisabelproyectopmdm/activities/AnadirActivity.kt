@@ -51,7 +51,6 @@ class AnadirActivity : AppCompatActivity() {
                 val guion = binding.tietAnadirGuion.text.toString().trim()
                 val musica = binding.tietAnadirMusica.text.toString().trim()
                 val fotografia = binding.tietAnadirFotografia.text.toString().trim()
-                //val reparto = binding.tietAnadirReparto.text.toString().trim()
                 val genero = binding.tietAnadirGenero.text.toString().trim()
                 val sinopsis = binding.tietAnadirSinopsis.text.toString().trim()
                 val nota = binding.tietAnadirNota.text.toString().trim()
@@ -66,7 +65,6 @@ class AnadirActivity : AppCompatActivity() {
                     TextUtils.isEmpty(guion) ||
                     TextUtils.isEmpty(musica) ||
                     TextUtils.isEmpty(fotografia) ||
-                    //TextUtils.isEmpty(reparto) ||
                     TextUtils.isEmpty(genero) ||
                     TextUtils.isEmpty(sinopsis) ||
                     TextUtils.isEmpty(nota) ||
@@ -79,14 +77,14 @@ class AnadirActivity : AppCompatActivity() {
                     val dialog = builder.setTitle(R.string.mensaje_guardar_pelicula)
                         .setMessage(R.string.mensaje_guardar_pelicula)
                         .setPositiveButton(R.string.boton_aceptar) { _, _ ->
-                            var pelicula = Pelicula(
+                            val pelicula = Pelicula(
                                 null, titulo, anno, duracion, pais, director, guion, musica,
                                 fotografia, genero, sinopsis, nota, imagen, trailer)
 
                             preferences = Preferences(this)
                             val context = this
 
-                            var token = "Bearer " + preferences.recuperarToken("")
+                            val token = "Bearer " + preferences.recuperarToken("")
 
                             val llamadaApi: Call<Unit> = apiRetrofit.anadir(token, pelicula)
                             llamadaApi.enqueue(object: Callback<Unit> {

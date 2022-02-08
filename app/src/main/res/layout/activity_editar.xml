@@ -158,24 +158,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilAnadirReparto"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="@dimen/componente_til_ancho"
-            android:layout_height="@dimen/componente_til_alto"
-            android:layout_marginTop="@dimen/margen_vertical_entre_edittexts"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tilAnadirFotografia">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tietAnadirReparto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_reparto"
-                android:inputType="textMultiLine" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilAnadirGenero"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="@dimen/componente_til_ancho"
@@ -183,7 +165,7 @@
             android:layout_marginTop="@dimen/margen_vertical_entre_edittexts"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tilAnadirReparto">
+            app:layout_constraintTop_toBottomOf="@+id/tilAnadirFotografia">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tietAnadirGenero"
