@@ -38,56 +38,68 @@ class InicioFragment : Fragment() {
 
         preferences = Preferences(con)
 
+        //Desactivar botón Acceder
+        binding.btAcceder.isEnabled = true
 
+        //comprobar token para saltar directamente a la pantalla de películas
+        if (!preferences.recuperarToken("").isNullOrEmpty()) {
+            val intent = Intent(activity, PeliculasActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+        }
+            binding.btAcceder.setOnClickListener {
 
-        binding.btAcceder.setOnClickListener {
+                var email = binding.tietEmail.text.toString().trim()
+                var contrasenha = binding.tietContrasena.text.toString().trim()
 
-            var email = binding.tietEmail.text.toString().trim()
-            var contrasenha = binding.tietContrasena.text.toString().trim()
+                if (email == "") {
+                    Toast.makeText(activity, R.string.toast_introduce_email, Toast.LENGTH_SHORT)
+                        .show()
+                } else if (contrasenha == "") {
+                    Toast.makeText(
+                        activity,
+                        R.string.toast_introduce_contrasena,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
 
-            if (email == "") {
-                Toast.makeText(activity, R.string.toast_introduce_email, Toast.LENGTH_SHORT).show()
-            } else if (contrasenha == "") {
-                Toast.makeText(activity, R.string.toast_introduce_contrasena, Toast.LENGTH_SHORT).show()
-            } else {
+                    val u = Usuario(null, email, contrasenha)
 
-                val u = Usuario(null, email, contrasenha)
+                    val loginCall = apiRetrofit.iniciar(u)
 
-                val loginCall = apiRetrofit.iniciar(u)
+                    loginCall.enqueue(object : Callback<Token> {
+                        override fun onFailure(call: Call<Token>, t: Throwable) {
+                            Toast.makeText(activity, R.string.toast_no_iniciado, Toast.LENGTH_SHORT)
+                                .show()
+                            Log.d("respuesta: onFailure", t.toString())
 
-                loginCall.enqueue(object: Callback<Token> {
-                    override fun onFailure(call: Call<Token>, t: Throwable) {
-                        Toast.makeText(activity, R.string.toast_no_iniciado, Toast.LENGTH_SHORT).show()
-                        Log.d("respuesta: onFailure", t.toString())
-
-                    }
-
-                    override fun onResponse(call: Call<Token>, response: Response<Token>) {
-                        Log.d("respuesta: onResponse", response.toString())
-
-                        if (response.code() < 200 || response.code() > 299) {
-                            Toast.makeText(activity, R.string.toast_no_iniciado, Toast.LENGTH_SHORT).show()
-
-                        } else {
-
-                            //Guardo en sharedPreferences el token
-                            val token = response.body()?.token.toString()
-                            preferences.guardarToken(token)
-
-                            Log.d("respuesta: token:", token.orEmpty())
-                            //Inicio nueva activity
-                            val intent = Intent(activity, PeliculasActivity::class.java)
-                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                            startActivity(intent)
                         }
 
-                    }
-                })
+                        override fun onResponse(call: Call<Token>, response: Response<Token>) {
+                            Log.d("respuesta: onResponse", response.toString())
+
+                            if (response.code() < 200 || response.code() > 299) {
+                                Toast.makeText(activity, R.string.toast_no_iniciado,Toast.LENGTH_SHORT).show()
+                            } else {
+                                //Guardo en sharedPreferences el token
+                                val token = response.body()?.token.toString()
+                                preferences.guardarToken(token)
+
+                                Log.d("respuesta: token:", token.orEmpty())
+                                //Inicio nueva activity
+                                val intent = Intent(activity, PeliculasActivity::class.java)
+                                intent.flags =
+                                    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                startActivity(intent)
+                            }
+
+                        }
+                    })
+                }
             }
 
-        }
-
         binding.tvCrearCuenta.setOnClickListener {
+            binding.btAcceder.isEnabled = false
             val ft = activity?.supportFragmentManager?.beginTransaction()
             ft?.addToBackStack(null)
             ft?.replace(R.id.contenedorFragments, RegistroFragment())

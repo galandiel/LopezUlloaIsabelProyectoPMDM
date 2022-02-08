@@ -16,6 +16,7 @@ import android.view.*
 import android.widget.LinearLayout
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient.apiRetrofit
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.utils.ValidacionesUtils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -122,7 +123,9 @@ class DetalleActivity : AppCompatActivity() {
                                 val peliculas = response.body()
                                 if (response.code() < 200 || response.code() > 299 || peliculas == null){
                                     Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
-
+                                    if (response.code() == 401 || response.code() == 500) {
+                                        ValidacionesUtils().reiniciarApp(context)
+                                    }
                                 } else {
 
                                     Toast.makeText(context, R.string.toast_pelicula_eliminada, Toast.LENGTH_SHORT).show()

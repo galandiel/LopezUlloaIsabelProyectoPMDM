@@ -65,4 +65,5 @@
     <string name="mensaje_confirmacion_cerrar_sesion">Estás a punto de pechar sesión, estás seguro?</string>
     <string name="toast_no_iniciado">Non se puido iniciar sesión</string>
     <string name="toast_no_registrado">Non se puido rexistrar ó usuario</string>
+    <string name="toast_token_caducado">Sesión caducada</string>
 </resources>

@@ -15,6 +15,7 @@ import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityAnadirBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.utils.ValidacionesUtils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -94,7 +95,9 @@ class AnadirActivity : AppCompatActivity() {
 
                                     if (response.code() < 200 || response.code() > 299){
                                         Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
-
+                                        if (response.code() == 401 || response.code() == 500) {
+                                            ValidacionesUtils().reiniciarApp(context)
+                                        }
                                     } else {
                                         Toast.makeText(context, R.string.toast_pelicula_guardada, Toast.LENGTH_SHORT).show()
                                         finish()

@@ -139,7 +139,7 @@ class EditarActivity : AppCompatActivity() {
                                     } else {
                                         Toast.makeText(context, R.string.toast_pelicula_guardada, Toast.LENGTH_SHORT).show()
                                         val intent = Intent(context, PeliculasActivity::class.java)
-                                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                         startActivity(intent)
                                     }
 

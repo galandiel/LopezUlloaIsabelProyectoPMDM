@@ -15,6 +15,7 @@ import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.adapters.Lista
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityPeliculasBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.utils.ValidacionesUtils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -48,7 +49,7 @@ class PeliculasActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.accion_salir -> {
+            /*R.id.accion_salir -> {
                 val builder = AlertDialog.Builder(this)
                 val dialog = builder.setTitle(R.string.mensaje_salir)
                     .setMessage(R.string.mensaje_confirmacion_salir)
@@ -61,15 +62,15 @@ class PeliculasActivity : AppCompatActivity() {
                     .create()
                 dialog.show()
                 return true
-            }
+            }*/
             R.id.accion_cerrar_sesion -> {
                 val builder = AlertDialog.Builder(this)
                 val dialog = builder.setTitle(R.string.mensaje_cerrar_sesion)
                     .setMessage(R.string.mensaje_confirmacion_cerrar_sesion)
                     .setPositiveButton(R.string.boton_aceptar) { _, _ ->
-                        val intent = Intent(this, MainActivity::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                        startActivity(intent)
+                        ValidacionesUtils().reiniciarApp(this)
+                        preferences.guardarToken("")
+
                     }
                     .setNegativeButton(R.string.boton_cancelar, null)
                     .create()
@@ -99,7 +100,9 @@ class PeliculasActivity : AppCompatActivity() {
 
                 if (response.code() < 200 || response.code() > 299 || peliculas == null){
                     Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
-
+                    if (response.code() == 401 || response.code() == 500) {
+                        ValidacionesUtils().reiniciarApp(context)
+                    }
                 } else {
                     //Creo los componentes que necesita el RecyclerView
                     val layoutManager = LinearLayoutManager(context)

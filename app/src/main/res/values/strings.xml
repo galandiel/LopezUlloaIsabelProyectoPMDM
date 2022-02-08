@@ -63,6 +63,7 @@
     <string name="toast_pelicula_eliminada">Película eliminada</string>
     <string name="toast_pelicula_guardada">Película guardada</string>
     <string name="toast_accion_cancelada">Acción cancelada</string>
+    <string name="toast_token_caducado">Sesión caducada</string>
     <string name="toast_error">Error</string>
 
     <!-- Mensajes -->
