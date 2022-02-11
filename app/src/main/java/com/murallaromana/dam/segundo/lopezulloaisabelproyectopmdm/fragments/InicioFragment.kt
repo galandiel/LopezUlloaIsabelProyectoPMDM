@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient.apiRetrofit
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.config.retrofitConfig.RetrofitClient.apiRetrofit
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities.PeliculasActivity
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.FragmentInicioBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
@@ -36,7 +36,7 @@ class InicioFragment : Fragment() {
 
         preferences = Preferences(con)
 
-        //Desactivar botón Acceder
+        //Activar botón Acceder
         binding.btAcceder.isEnabled = true
 
         //comprobar token para saltar directamente a la pantalla de películas
@@ -77,7 +77,6 @@ class InicioFragment : Fragment() {
                             binding.btAcceder.isEnabled = true
                             binding.pbCargando.visibility = View.GONE
                             Log.d("respuesta: onFailure", t.toString())
-
                         }
 
                         override fun onResponse(call: Call<Token>, response: Response<Token>) {

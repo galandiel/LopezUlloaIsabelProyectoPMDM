@@ -64,6 +64,7 @@
     <string name="toast_pelicula_guardada">Película guardada</string>
     <string name="toast_accion_cancelada">Acción cancelada</string>
     <string name="toast_token_caducado">Sesión caducada</string>
+    <string name="toast_no_internet">No hay conexión a internet, la información puede no estar actualizada</string>
     <string name="toast_error">Error</string>
 
     <!-- Mensajes -->

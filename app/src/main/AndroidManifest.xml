@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm">
+    <!-- Damos permiso a la app para acceder al estado de la red -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- Damos permiso a la app para acceder a internet -->
     <uses-permission android:name="android.permission.INTERNET" />
 

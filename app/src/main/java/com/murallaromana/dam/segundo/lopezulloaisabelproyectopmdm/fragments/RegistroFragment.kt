@@ -12,7 +12,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient.apiRetrofit
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.config.retrofitConfig.RetrofitClient.apiRetrofit
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.FragmentRegistroBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Usuario
@@ -38,8 +38,11 @@ class RegistroFragment : Fragment() {
 
         preferences = Preferences(con)
 
-        binding.btCrearCuenta.setOnClickListener {
+        binding.btCrearCuenta.isEnabled = true
 
+        binding.btCrearCuenta.setOnClickListener {
+            binding.btCrearCuenta.isEnabled = false
+            binding.pbCargando.visibility = View.VISIBLE
             val usuario = binding.tietUsuario.text.toString().trim()
             val email = binding.tietEmail.text.toString().trim()
             val telefono = binding.tietTelefono.text.toString().trim()
@@ -53,9 +56,13 @@ class RegistroFragment : Fragment() {
                 TextUtils.isEmpty(contrasenhaValidar)
             ) {
                 Toast.makeText(activity, R.string.toast_campos_vacios, Toast.LENGTH_SHORT).show()
+                binding.btCrearCuenta.isEnabled = true
+                binding.pbCargando.visibility = View.GONE
             }
             else if (!validarEmail(email)){
                 Toast.makeText(activity, R.string.toast_email_no_valido, Toast.LENGTH_SHORT).show()
+                binding.btCrearCuenta.isEnabled = true
+                binding.pbCargando.visibility = View.GONE
             }
             else if (contrasenhaRegistro.equals(contrasenhaValidar)) {
 
@@ -67,7 +74,8 @@ class RegistroFragment : Fragment() {
                         override fun onFailure(call: Call<Unit>, t: Throwable) {
                             Toast.makeText(activity, R.string.toast_no_registrado, Toast.LENGTH_SHORT).show()
                             Log.d("respuesta: onFailure", t.toString())
-
+                            binding.btCrearCuenta.isEnabled = true
+                            binding.pbCargando.visibility = View.GONE
                         }
 
                         override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
@@ -75,6 +83,8 @@ class RegistroFragment : Fragment() {
 
                             if (response.code() > 299 || response.code() < 200) {
                                 Toast.makeText(activity, R.string.toast_no_registrado, Toast.LENGTH_SHORT).show()
+                                binding.btCrearCuenta.isEnabled = true
+                                binding.pbCargando.visibility = View.GONE
                             } else {
                                 preferences.guardarEmail(email)
                                 activity?.onBackPressed()
@@ -82,7 +92,6 @@ class RegistroFragment : Fragment() {
 
                         }
                     })
-
 
                 } else {
                     Toast.makeText(activity, R.string.toast_contrasenas_no_coinciden, Toast.LENGTH_SHORT)

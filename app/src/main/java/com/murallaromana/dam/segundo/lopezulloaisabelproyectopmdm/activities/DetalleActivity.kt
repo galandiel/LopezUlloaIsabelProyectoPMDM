@@ -14,7 +14,7 @@ import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities
 import com.squareup.picasso.Picasso
 import android.view.*
 import android.widget.LinearLayout
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient.apiRetrofit
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.config.retrofitConfig.RetrofitClient.apiRetrofit
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.utils.ValidacionesUtils
 import retrofit2.Call
@@ -121,7 +121,7 @@ class DetalleActivity : AppCompatActivity() {
                                 val peliculas = response.body()
                                 if (response.code() < 200 || response.code() > 299 || peliculas == null){
                                     Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
-                                    if (response.code() == 401 || response.code() == 500) {
+                                    if (response.code() == 401) {
                                         ValidacionesUtils().reiniciarApp(context)
                                     }
                                 } else {

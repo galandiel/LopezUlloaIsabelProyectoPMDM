@@ -11,7 +11,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient.apiRetrofit
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.config.retrofitConfig.RetrofitClient.apiRetrofit
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityAnadirBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
@@ -93,7 +93,7 @@ class AnadirActivity : AppCompatActivity() {
 
                                     if (response.code() < 200 || response.code() > 299){
                                         Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
-                                        if (response.code() == 401 || response.code() == 500) {
+                                        if (response.code() == 401) {
                                             ValidacionesUtils().reiniciarApp(context)
                                         }
                                     } else {

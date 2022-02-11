@@ -1,4 +1,4 @@
-package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm
+package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.config.retrofitConfig
 
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.retrofit.Api
 import retrofit2.Retrofit

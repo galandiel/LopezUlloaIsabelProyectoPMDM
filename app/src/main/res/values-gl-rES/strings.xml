@@ -66,4 +66,5 @@
     <string name="toast_no_iniciado">Non se puido iniciar sesión</string>
     <string name="toast_no_registrado">Non se puido rexistrar ó usuario</string>
     <string name="toast_token_caducado">Sesión caducada</string>
+    <string name="toast_no_internet">Non hai conexión a Internet, a información pode non estar actualualizada</string>
 </resources>

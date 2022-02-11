@@ -1,8 +1,12 @@
 package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
+@Entity
 data class Pelicula(
     var id: String?,
     @SerializedName("title") var titulo: String,
@@ -13,10 +17,22 @@ data class Pelicula(
     @SerializedName("screenwriters") var guion: String?,
     @SerializedName("musicDirector")var musica: String?,
     @SerializedName("photographyDirector")var fotografia: String?,
-    //var reparto: String?,
     @SerializedName("genre")var genero: String?,
     @SerializedName("description")var sinopsis: String?,
     @SerializedName("rating") var nota: String?,
     @SerializedName("imageUrl")var imagen: String?,
     @SerializedName("trailerUrl")var trailer : String?
-) : Serializable
+) : Serializable {
+
+    @PrimaryKey
+    @ColumnInfo (name="idroom")
+    var idroom: String = ""
+
+    fun obtenerId(): String? {
+        if (id == null)
+            return idroom
+        else
+            return id
+    }
+}
+

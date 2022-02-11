@@ -66,4 +66,5 @@
     <string name="toast_no_iniciado">Login error</string>
     <string name="toast_no_registrado">Singup error</string>
     <string name="toast_token_caducado">Expired session</string>
+    <string name="toast_no_internet">There is no conexion to Internet, the information may not be updated</string>
 </resources>

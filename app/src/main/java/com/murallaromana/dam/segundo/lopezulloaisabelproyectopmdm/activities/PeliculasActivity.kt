@@ -10,12 +10,16 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.R
-import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.RetrofitClient.apiRetrofit
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.config.retrofitConfig.RetrofitClient.apiRetrofit
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.adapters.ListaPeliculasAdapter
+import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.config.bdConfig.AppDatabase
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.databinding.ActivityPeliculasBinding
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.Preferences
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.utils.ValidacionesUtils
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -91,16 +95,32 @@ class PeliculasActivity : AppCompatActivity() {
 
         val token = "Bearer " + preferences.recuperarToken("")
 
+
+        if (!ValidacionesUtils().hayConexion(context)) {
+            GlobalScope.launch (Dispatchers.IO){
+                val db = AppDatabase.getDatabase(context)
+                val peliculaDao = db?.peliculaDao()
+                peliculaDao?.findAll()
+                binding.fabAnadirPelicula.hide()
+
+                runOnUiThread {
+                    Toast.makeText(context, R.string.toast_no_internet, Toast.LENGTH_LONG).show()
+                }
+            }
+        } else {
         val llamadaApi: Call<List<Pelicula>> = apiRetrofit.getPeliculas(token)
-        llamadaApi.enqueue(object: Callback<List<Pelicula>> {
-            override fun onResponse(call: Call<List<Pelicula>>, response: Response<List<Pelicula>>) {
+        llamadaApi.enqueue(object : Callback<List<Pelicula>> {
+            override fun onResponse(
+                call: Call<List<Pelicula>>,
+                response: Response<List<Pelicula>>
+            ) {
 
                 //Obtengo los datos de las peliculas
                 val peliculas = response.body()
 
-                if (response.code() < 200 || response.code() > 299 || peliculas == null){
+                if (response.code() < 200 || response.code() > 299 || peliculas == null) {
                     Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
-                    if (response.code() == 401 || response.code() == 500) {
+                    if (response.code() == 401) {
                         ValidacionesUtils().reiniciarApp(context)
                     }
                 } else {
@@ -114,11 +134,13 @@ class PeliculasActivity : AppCompatActivity() {
                 }
 
             }
+
             override fun onFailure(call: Call<List<Pelicula>>, t: Throwable) {
                 Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
                 Log.d("prueba", t.message.toString())
             }
         })
+    }
     }
 
 }
