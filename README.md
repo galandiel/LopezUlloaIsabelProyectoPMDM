@@ -6,7 +6,7 @@ Aplicación que permite iniciar sesión, registrarse, consultar una lista de pel
 añadir más películas.
 También cuenta con una apk.
 
-#### Esta aplicación contiene las siguientes pantallas: ####
+### Esta aplicación contiene las siguientes pantallas:
 
 - Inicio de sesión
 - Registro
@@ -15,7 +15,7 @@ También cuenta con una apk.
 - Añadir película
 - Editar película
 
-#### Bibliotecas utilizadas:
+### Bibliotecas utilizadas:
 
 - Picasso
 - Cardview
@@ -24,12 +24,12 @@ También cuenta con una apk.
 
 #### Imágenes de la App
 
-#### Pantalla de inicio:
+##### Pantalla de inicio:
 ![Imagen pantalla login](https://github.com/galandiel/LopezUlloaIsabelProyectoPMDM/blob/main/images/inicio.png)
 
-### Pantalla de lista de películas:
+#### Pantalla de lista de películas:
 ![Imagen pantalla películas](https://github.com/galandiel/LopezUlloaIsabelProyectoPMDM/blob/main/images/listaPeliculas.png)
 
-### Pantalla de detalles de la película:
+#### Pantalla de detalles de la película:
 ![Imagen pantalla detalles](https://github.com/galandiel/LopezUlloaIsabelProyectoPMDM/blob/main/images/peliculaDetalle.png)
 
