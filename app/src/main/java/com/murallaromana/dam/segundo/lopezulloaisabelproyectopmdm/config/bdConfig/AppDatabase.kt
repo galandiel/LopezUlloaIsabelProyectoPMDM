@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.room.PeliculaDao
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
 
+
 @Database(entities = [Pelicula::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun peliculaDao(): PeliculaDao
@@ -19,10 +20,11 @@ abstract class AppDatabase : RoomDatabase() {
                 database = Room.databaseBuilder(
                     context,
                     AppDatabase::class.java,
-                    "my-imdb"
+                    "BaseDatosPeliculas"
                 ).build()
             }
             return database
         }
     }
 }
+

@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-@Entity
+@Entity (tableName = "peliculas")
 data class Pelicula(
     var id: String?,
     @SerializedName("title") var titulo: String,
@@ -26,7 +26,8 @@ data class Pelicula(
 
     @PrimaryKey
     @ColumnInfo (name="idroom")
-    var idroom: String = ""
+
+    @Transient var idroom: String = ""
 
     fun obtenerId(): String? {
         if (id == null)

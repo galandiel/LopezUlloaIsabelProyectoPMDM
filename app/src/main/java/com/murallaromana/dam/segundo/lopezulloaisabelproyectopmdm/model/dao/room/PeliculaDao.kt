@@ -2,14 +2,15 @@ package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.dao.roo
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.model.entities.Pelicula
 
 @Dao
 interface PeliculaDao {
-    @Query("SELECT * from pelicula")
+    @Query("SELECT * from peliculas")
     fun findAll(): List<Pelicula>
 
-    @Insert
-    fun insertAll(peliculas: Pelicula)
+    @Insert (onConflict = OnConflictStrategy.IGNORE)
+    fun insertAll(peliculas: List<Pelicula>)
 }
