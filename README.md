@@ -22,9 +22,9 @@ También cuenta con una apk.
 - Retrofit
 - Room
 
-#### Imágenes de la App
+### Imágenes de la App
 
-##### Pantalla de inicio:
+#### Pantalla de inicio:
 ![Imagen pantalla login](https://github.com/galandiel/LopezUlloaIsabelProyectoPMDM/blob/main/images/inicio.png)
 
 #### Pantalla de lista de películas:
