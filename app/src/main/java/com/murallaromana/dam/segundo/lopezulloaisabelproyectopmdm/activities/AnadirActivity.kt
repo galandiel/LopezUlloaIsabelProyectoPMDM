@@ -83,6 +83,7 @@ class AnadirActivity : AppCompatActivity() {
                             val context = this
                             val token = "Bearer " + preferences.recuperarToken()
 
+                            //Añadir película
                             val llamadaApi: Call<Unit> = apiRetrofit.anadir(token, pelicula)
                             llamadaApi.enqueue(object: Callback<Unit> {
                                 override fun onResponse(call: Call<Unit>, response: Response<Unit>) {

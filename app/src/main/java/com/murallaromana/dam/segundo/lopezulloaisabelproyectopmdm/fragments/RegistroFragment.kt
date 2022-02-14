@@ -25,12 +25,17 @@ class RegistroFragment : Fragment() {
 
     private lateinit var binding: FragmentRegistroBinding
     private lateinit var con: Context
+
     companion object {
         lateinit var preferences: Preferences
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = FragmentRegistroBinding.inflate(inflater,container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentRegistroBinding.inflate(inflater, container, false)
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         con = requireContext().applicationContext
 
@@ -49,6 +54,7 @@ class RegistroFragment : Fragment() {
             val contrasenhaRegistro = binding.tietContrasenaRegistro.text.toString().trim()
             val contrasenhaValidar = binding.tietValidarContrasena.text.toString().trim()
 
+            //Comprobaciones
             if (TextUtils.isEmpty(usuario) ||
                 TextUtils.isEmpty(email) ||
                 TextUtils.isEmpty(telefono) ||
@@ -58,55 +64,58 @@ class RegistroFragment : Fragment() {
                 Toast.makeText(activity, R.string.toast_campos_vacios, Toast.LENGTH_SHORT).show()
                 binding.btCrearCuenta.isEnabled = true
                 binding.pbCargando.visibility = View.GONE
-            }
-            else if (!validarEmail(email)){
+            } else if (!validarEmail(email)) {
                 Toast.makeText(activity, R.string.toast_email_no_valido, Toast.LENGTH_SHORT).show()
                 binding.btCrearCuenta.isEnabled = true
                 binding.pbCargando.visibility = View.GONE
-            }
-            else if (contrasenhaRegistro.equals(contrasenhaValidar)) {
+            } else if (contrasenhaRegistro.equals(contrasenhaValidar)) {
 
-                    val u = Usuario(null, email, contrasenhaRegistro)
+                val u = Usuario(null, email, contrasenhaRegistro)
 
-                    val signupCall = apiRetrofit.registrarse(u)
+                //Registrarse
+                val signupCall = apiRetrofit.registrarse(u)
+                signupCall.enqueue(object : Callback<Unit> {
+                    override fun onFailure(call: Call<Unit>, t: Throwable) {
+                        Toast.makeText(activity, R.string.toast_no_registrado, Toast.LENGTH_SHORT)
+                            .show()
+                        Log.d("respuesta: onFailure", t.toString())
+                        binding.btCrearCuenta.isEnabled = true
+                        binding.pbCargando.visibility = View.GONE
+                    }
 
-                    signupCall.enqueue(object: Callback<Unit> {
-                        override fun onFailure(call: Call<Unit>, t: Throwable) {
-                            Toast.makeText(activity, R.string.toast_no_registrado, Toast.LENGTH_SHORT).show()
-                            Log.d("respuesta: onFailure", t.toString())
+                    override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                        if (response.code() > 299 || response.code() < 200) {
+                            Toast.makeText(
+                                activity,
+                                R.string.toast_no_registrado,
+                                Toast.LENGTH_SHORT
+                            ).show()
                             binding.btCrearCuenta.isEnabled = true
                             binding.pbCargando.visibility = View.GONE
+                        } else {
+                            preferences.guardarEmail(email)
+                            activity?.onBackPressed()
                         }
+                    }
+                })
 
-                        override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                            Log.d("respuesta: onResponse", response.toString())
-
-                            if (response.code() > 299 || response.code() < 200) {
-                                Toast.makeText(activity, R.string.toast_no_registrado, Toast.LENGTH_SHORT).show()
-                                binding.btCrearCuenta.isEnabled = true
-                                binding.pbCargando.visibility = View.GONE
-                            } else {
-                                preferences.guardarEmail(email)
-                                activity?.onBackPressed()
-                            }
-
-                        }
-                    })
-
-                } else {
-                    Toast.makeText(activity, R.string.toast_contrasenas_no_coinciden, Toast.LENGTH_SHORT)
-                        .show()
-                }
+            } else {
+                Toast.makeText(
+                    activity,
+                    R.string.toast_contrasenas_no_coinciden,
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+            }
 
             /*PRE-CIO-SO*/
             /*PRE-CI-O-SO*/
             /*Non sei se existe diptongo/hiato*/
         }
-
         return binding.root
     }
 
-    private fun validarEmail(email:String):Boolean{
+    private fun validarEmail(email: String): Boolean {
         val pattern: Pattern = Patterns.EMAIL_ADDRESS
         return pattern.matcher(email).matches()
     }

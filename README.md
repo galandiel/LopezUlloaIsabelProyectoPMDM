@@ -4,6 +4,7 @@
 
 Aplicación que permite iniciar sesión, registrarse, consultar una lista de películas, modificarlas y
 añadir más películas.
+También cuenta con una apk.
 
 ** Esta aplicación contiene las siguientes pantallas: **
 

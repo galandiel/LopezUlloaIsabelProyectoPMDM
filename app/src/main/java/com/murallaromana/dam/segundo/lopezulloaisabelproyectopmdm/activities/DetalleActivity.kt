@@ -36,6 +36,7 @@ class DetalleActivity : AppCompatActivity() {
         binding = ActivityDetalleBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //Mostrar un toast al presionar el botón si no hay internet
         binding.fabPlay.setOnClickListener {
             if (!ValidacionesUtils().hayConexion(this)) {
                 Toast.makeText(this, R.string.toast_no_internet, Toast.LENGTH_LONG).show()
@@ -93,6 +94,7 @@ class DetalleActivity : AppCompatActivity() {
         binding.ratingBarDetalle.rating = nota
     }
 
+    //Mostrar el menú sólo si hay internet
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_detalle_pelicula, menu)
         return ValidacionesUtils().hayConexion(this)
@@ -117,6 +119,7 @@ class DetalleActivity : AppCompatActivity() {
 
                         val token = "Bearer " + preferences.recuperarToken()
 
+                        //Eliminar película
                         val llamadaApi: Call<Unit> = apiRetrofit.eliminar(token, infoPelicula.id)
                         llamadaApi.enqueue(object: Callback<Unit> {
                             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {

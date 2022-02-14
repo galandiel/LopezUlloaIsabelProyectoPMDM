@@ -15,6 +15,7 @@ class ValidacionesUtils {
         lateinit var preferences: Preferences
     }
 
+    //Método que borra el token y vuelve a la pantalla de inicio
     fun reiniciarApp (con: Context) {
         preferences = Preferences(con)
         preferences.guardarToken("")
@@ -23,6 +24,7 @@ class ValidacionesUtils {
         con.startActivity(intent)
     }
 
+    //Método que comprueba si hay conexion a internet
     fun hayConexion(context: Context): Boolean {
         val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

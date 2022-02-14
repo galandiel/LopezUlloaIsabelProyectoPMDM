@@ -12,6 +12,7 @@ class Preferences(val context: Context) {
         val CLAVE_FECHA = "fecha"
     }
 
+    //Guardar
     fun guardarToken(token: String) {
         preferences.edit().putString(CLAVE_TOKEN, token).apply()
     }
@@ -24,6 +25,7 @@ class Preferences(val context: Context) {
         preferences.edit().putString(CLAVE_FECHA, fecha).apply()
     }
 
+    //Recuperar
     fun recuperarToken(): String? {
         return preferences.getString(CLAVE_TOKEN, "")
     }

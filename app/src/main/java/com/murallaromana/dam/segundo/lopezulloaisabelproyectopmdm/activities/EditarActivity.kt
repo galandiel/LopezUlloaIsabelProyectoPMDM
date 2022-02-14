@@ -42,6 +42,7 @@ class EditarActivity : AppCompatActivity() {
 
         val token = "Bearer " + preferences.recuperarToken()
 
+        //Obtener la película
         val llamadaApi: Call<Pelicula> = apiRetrofit.getById(token, id)
         llamadaApi.enqueue(object: Callback<Pelicula> {
             override fun onResponse(call: Call<Pelicula>, response: Response<Pelicula>) {
@@ -82,7 +83,6 @@ class EditarActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.accion_guardar -> {
-
                 val titulo = binding.tietAnadirTitulo.text.toString().trim()
                 val anno = binding.tietAnadirAnno.text.toString().trim()
                 val duracion = binding.tietAnadirDuracion.text.toString().trim()
@@ -126,6 +126,7 @@ class EditarActivity : AppCompatActivity() {
 
                             val token = "Bearer " + preferences.recuperarToken()
 
+                            //Editar la película
                             val llamadaApi: Call<Unit> = apiRetrofit.editar(token, peliculaEditada)
                             llamadaApi.enqueue(object: Callback<Unit> {
                                 override fun onResponse(call: Call<Unit>, response: Response<Unit>) {

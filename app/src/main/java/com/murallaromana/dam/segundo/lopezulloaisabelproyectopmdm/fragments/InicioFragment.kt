@@ -39,7 +39,7 @@ class InicioFragment : Fragment() {
         //Activar botón Acceder
         binding.btAcceder.isEnabled = true
 
-        //comprobar token para saltar directamente a la pantalla de películas
+        //Comprobar token para saltar directamente a la pantalla de películas
         if (!preferences.recuperarToken().isNullOrEmpty()) {
             val intent = Intent(activity, PeliculasActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -51,6 +51,7 @@ class InicioFragment : Fragment() {
                 val email = binding.tietEmail.text.toString().trim()
                 val contrasenha = binding.tietContrasena.text.toString().trim()
 
+                //Comprobaciones
                 if (email == "") {
                     Toast.makeText(activity, R.string.toast_introduce_email, Toast.LENGTH_SHORT)
                         .show()
@@ -65,33 +66,29 @@ class InicioFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
-
                     val u = Usuario(null, email, contrasenha)
 
+                    //Iniciar sesión
                     val loginCall = apiRetrofit.iniciar(u)
-
                     loginCall.enqueue(object : Callback<Token> {
                         override fun onFailure(call: Call<Token>, t: Throwable) {
                             Toast.makeText(activity, R.string.toast_no_iniciado, Toast.LENGTH_SHORT)
                                 .show()
                             binding.btAcceder.isEnabled = true
                             binding.pbCargando.visibility = View.GONE
-                            Log.d("respuesta: onFailure", t.toString())
                         }
 
                         override fun onResponse(call: Call<Token>, response: Response<Token>) {
-                            Log.d("respuesta: onResponse", response.toString())
-
                             if (response.code() < 200 || response.code() > 299) {
                                 Toast.makeText(activity, R.string.toast_no_iniciado,Toast.LENGTH_SHORT).show()
                                 binding.btAcceder.isEnabled = true
                                 binding.pbCargando.visibility = View.GONE
                             } else {
-                                //Guardo en sharedPreferences el token
+                                //Guardar el token en sharedPreferences
                                 val token = response.body()?.token.toString()
                                 preferences.guardarToken(token)
 
-                                //Inicio nueva activity
+                                //Iniciar nueva activity
                                 val intent = Intent(activity, PeliculasActivity::class.java)
                                 intent.flags =
                                     Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -108,7 +105,6 @@ class InicioFragment : Fragment() {
             ft?.replace(R.id.contenedorFragments, RegistroFragment())
             ft?.commit()
         }
-
         return binding.root
     }
 
