@@ -39,10 +39,8 @@ class AnadirActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         when (item.itemId) {
             R.id.accion_guardar -> {
-
                 val titulo = binding.tietAnadirTitulo.text.toString().trim()
                 val anno = binding.tietAnadirAnno.text.toString().trim()
                 val duracion = binding.tietAnadirDuracion.text.toString().trim()
@@ -83,14 +81,11 @@ class AnadirActivity : AppCompatActivity() {
 
                             preferences = Preferences(this)
                             val context = this
-
-                            val token = "Bearer " + preferences.recuperarToken("")
+                            val token = "Bearer " + preferences.recuperarToken()
 
                             val llamadaApi: Call<Unit> = apiRetrofit.anadir(token, pelicula)
                             llamadaApi.enqueue(object: Callback<Unit> {
                                 override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-
-
                                     if (response.code() < 200 || response.code() > 299){
                                         Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
                                         if (response.code() == 401) {
@@ -111,7 +106,7 @@ class AnadirActivity : AppCompatActivity() {
                         }
                         .setNegativeButton(R.string.boton_cancelar, null)
                         .create()
-                    dialog.show()
+                        dialog.show()
                 }
                 return true
             }

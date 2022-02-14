@@ -9,6 +9,7 @@ class Preferences(val context: Context) {
     companion object {
         val CLAVE_TOKEN = "tokenAutenticacion"
         val CLAVE_EMAIL = "email"
+        val CLAVE_FECHA = "fecha"
     }
 
     fun guardarToken(token: String) {
@@ -19,11 +20,19 @@ class Preferences(val context: Context) {
         preferences.edit().putString(CLAVE_EMAIL, email).apply()
     }
 
-    fun recuperarToken(token:String): String? {
+    fun guardarFecha(fecha: String) {
+        preferences.edit().putString(CLAVE_FECHA, fecha).apply()
+    }
+
+    fun recuperarToken(): String? {
         return preferences.getString(CLAVE_TOKEN, "")
     }
 
-    fun recuperarEmail(email:String): String? {
+    fun recuperarEmail(): String? {
         return preferences.getString(CLAVE_EMAIL, "")
+    }
+
+    fun recuperarFecha(): String? {
+        return preferences.getString(CLAVE_FECHA, "")
     }
 }

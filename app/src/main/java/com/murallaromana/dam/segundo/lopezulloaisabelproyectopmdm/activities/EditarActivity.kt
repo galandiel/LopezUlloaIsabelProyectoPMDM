@@ -40,8 +40,7 @@ class EditarActivity : AppCompatActivity() {
         preferences = Preferences(this)
         val context = this
 
-        val token = "Bearer " + preferences.recuperarToken("")
-
+        val token = "Bearer " + preferences.recuperarToken()
 
         val llamadaApi: Call<Pelicula> = apiRetrofit.getById(token, id)
         llamadaApi.enqueue(object: Callback<Pelicula> {
@@ -53,7 +52,6 @@ class EditarActivity : AppCompatActivity() {
                         ValidacionesUtils().reiniciarApp(context)
                     }
                 } else {
-
                     binding.tietAnadirTitulo.setText(pelicula.titulo)
                     binding.tietAnadirAnno.setText(pelicula.anno)
                     binding.tietAnadirDuracion.setText(pelicula.duracion)
@@ -62,7 +60,6 @@ class EditarActivity : AppCompatActivity() {
                     binding.tietAnadirGuion.setText(pelicula.guion)
                     binding.tietAnadirMusica.setText(pelicula.musica)
                     binding.tietAnadirFotografia.setText(pelicula.fotografia)
-                    //binding.tietAnadirReparto.setText(pelicula.reparto)
                     binding.tietAnadirGenero.setText(pelicula.genero)
                     binding.tietAnadirSinopsis.setText(pelicula.sinopsis)
                     binding.tietAnadirNota.setText(pelicula.nota)
@@ -73,7 +70,6 @@ class EditarActivity : AppCompatActivity() {
             }
             override fun onFailure(call: Call<Pelicula>, t: Throwable) {
                 Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
-                Log.d("prueba", t.message.toString())
             }
         })
     }
@@ -128,7 +124,7 @@ class EditarActivity : AppCompatActivity() {
                             preferences = Preferences(this)
                             val context = this
 
-                            val token = "Bearer " + preferences.recuperarToken("")
+                            val token = "Bearer " + preferences.recuperarToken()
 
                             val llamadaApi: Call<Unit> = apiRetrofit.editar(token, peliculaEditada)
                             llamadaApi.enqueue(object: Callback<Unit> {

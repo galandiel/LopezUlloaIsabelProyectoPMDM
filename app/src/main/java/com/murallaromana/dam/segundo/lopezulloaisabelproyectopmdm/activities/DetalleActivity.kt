@@ -31,44 +31,46 @@ class DetalleActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetalleBinding
 
-    @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetalleBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.fabPlay.setOnClickListener {
-            val inflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            val vista = inflater.inflate(R.layout.layout_video,null)
+            if (!ValidacionesUtils().hayConexion(this)) {
+                Toast.makeText(this, R.string.toast_no_internet, Toast.LENGTH_LONG).show()
+            } else {
+                val inflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                val vista = inflater.inflate(R.layout.layout_video,null)
 
-            val ancho = LinearLayout.LayoutParams.WRAP_CONTENT
-            val alto = LinearLayout.LayoutParams.WRAP_CONTENT
-            val focusable = true
-            val popupWindow = PopupWindow(vista, ancho, alto, focusable)
+                val ancho = LinearLayout.LayoutParams.WRAP_CONTENT
+                val alto = LinearLayout.LayoutParams.WRAP_CONTENT
+                val focusable = true
+                val popupWindow = PopupWindow(vista, ancho, alto, focusable)
 
-            popupWindow.showAtLocation(vista, Gravity.CENTER, 0, 0)
+                popupWindow.showAtLocation(vista, Gravity.CENTER, 0, 0)
 
-            vista.setOnTouchListener(object : View.OnTouchListener {
-                @SuppressLint("ClickableViewAccessibility")
-                override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-                    popupWindow.dismiss()
-                    return true
-                }
-            })
+                vista.setOnTouchListener(object : View.OnTouchListener {
+                    @SuppressLint("ClickableViewAccessibility")
+                    override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                        popupWindow.dismiss()
+                        return true
+                    }
+                })
+                //val ventana = PopupWindow(this)
 
-            //val ventana = PopupWindow(this)
-
-            //ventana.contentView = vista
-            //val video = vista.findViewById<VideoView>(R.id.vvTrailer)
-            //val ruta = infoPelicula.trailer
-            //val uri: Uri = Uri.parse(ruta)
-            //video.setVideoURI(uri)
-            //video.start()
-            //ventana.showAtLocation(vista, Gravity.CENTER, 0, 0)
-            //video.setOnClickListener {
+                //ventana.contentView = vista
+                //val video = vista.findViewById<VideoView>(R.id.vvTrailer)
+                //val ruta = infoPelicula.trailer
+                //val uri: Uri = Uri.parse(ruta)
+                //video.setVideoURI(uri)
+                //video.start()
+                //ventana.showAtLocation(vista, Gravity.CENTER, 0, 0)
+                //video.setOnClickListener {
                 //ventana.dismiss()
             }
         }
+    }
 
     override fun onResume() {
         super.onResume()
@@ -93,7 +95,7 @@ class DetalleActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_detalle_pelicula, menu)
-        return true
+        return ValidacionesUtils().hayConexion(this)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -113,7 +115,7 @@ class DetalleActivity : AppCompatActivity() {
                         preferences = Preferences(this)
                         val context = this
 
-                        val token = "Bearer " + preferences.recuperarToken("")
+                        val token = "Bearer " + preferences.recuperarToken()
 
                         val llamadaApi: Call<Unit> = apiRetrofit.eliminar(token, infoPelicula.id)
                         llamadaApi.enqueue(object: Callback<Unit> {

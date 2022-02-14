@@ -28,7 +28,7 @@ class InicioFragment : Fragment() {
         lateinit var preferences: Preferences
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View {
         binding = FragmentInicioBinding.inflate(inflater, container, false)
         con = requireContext().applicationContext
 
@@ -40,7 +40,7 @@ class InicioFragment : Fragment() {
         binding.btAcceder.isEnabled = true
 
         //comprobar token para saltar directamente a la pantalla de películas
-        if (!preferences.recuperarToken("").isNullOrEmpty()) {
+        if (!preferences.recuperarToken().isNullOrEmpty()) {
             val intent = Intent(activity, PeliculasActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
@@ -97,7 +97,6 @@ class InicioFragment : Fragment() {
                                     Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                 startActivity(intent)
                             }
-
                         }
                     })
                 }
@@ -115,7 +114,7 @@ class InicioFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        val email = preferences.recuperarEmail("").toString()
+        val email = preferences.recuperarEmail().toString()
         binding.tietEmail.setText(email)
 
     }

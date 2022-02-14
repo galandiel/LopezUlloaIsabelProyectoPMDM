@@ -11,6 +11,9 @@ interface PeliculaDao {
     @Query("SELECT * from peliculas")
     fun findAll(): List<Pelicula>
 
+    @Query("Delete from peliculas")
+    fun deleteAll()
+
     @Insert (onConflict = OnConflictStrategy.IGNORE)
-    fun insertAll(peliculas: List<Pelicula>)
+    fun insertAll(peliculas: List<Pelicula>?)
 }

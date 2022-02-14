@@ -29,7 +29,7 @@ class RegistroFragment : Fragment() {
         lateinit var preferences: Preferences
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentRegistroBinding.inflate(inflater,container, false)
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         con = requireContext().applicationContext

@@ -3,7 +3,6 @@ package com.murallaromana.dam.segundo.lopezulloaisabelproyectopmdm.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -23,10 +22,13 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
 
 class PeliculasActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPeliculasBinding
+    private lateinit var peliculas: List<Pelicula>
     companion object {
         lateinit var preferences: Preferences
     }
@@ -93,20 +95,28 @@ class PeliculasActivity : AppCompatActivity() {
         preferences = Preferences(this)
         val context = this
 
-        val token = "Bearer " + preferences.recuperarToken("")
-
+        val token = "Bearer " + preferences.recuperarToken()
 
         if (!ValidacionesUtils().hayConexion(context)) {
-            GlobalScope.launch (Dispatchers.IO){
                 val db = AppDatabase.getDatabase(context)
                 val peliculaDao = db?.peliculaDao()
-                peliculaDao?.findAll()
-                binding.fabAnadirPelicula.hide()
+                GlobalScope.launch(Dispatchers.IO) {
+                    peliculas = peliculaDao!!.findAll()
 
-                runOnUiThread {
-                    Toast.makeText(context, R.string.toast_no_internet, Toast.LENGTH_LONG).show()
+                    runOnUiThread {
+                        binding.fabAnadirPelicula.hide()
+                        Toast.makeText(context, R.string.toast_no_internet, Toast.LENGTH_LONG).show()
+
+                        //Creo los componentes que necesita el RecyclerView
+                        val layoutManager = LinearLayoutManager(context)
+                        val adapter = ListaPeliculasAdapter(peliculas, context)
+
+                        //Asocio el RecyclerView con sus componentes
+                        binding.rvListaPeliculas.adapter = adapter
+                        binding.rvListaPeliculas.layoutManager = layoutManager
+                    }
                 }
-            }
+
         } else {
         val llamadaApi: Call<List<Pelicula>> = apiRetrofit.getPeliculas(token)
         llamadaApi.enqueue(object : Callback<List<Pelicula>> {
@@ -114,9 +124,26 @@ class PeliculasActivity : AppCompatActivity() {
                 call: Call<List<Pelicula>>,
                 response: Response<List<Pelicula>>
             ) {
-
                 //Obtengo los datos de las peliculas
                 val peliculas = response.body()
+
+                //Guardo la fecha actual en sharedPreferences
+                val c = Calendar.getInstance()
+                val sdf = SimpleDateFormat("dd-MM-yyyy")
+                val fecha = sdf.format(c.time)
+
+                /*Si la fecha actual no coincide con la quardada en sharedPreferences, guardamos
+                tanto la fecha como las películas*/
+                if (preferences.recuperarFecha() != fecha || preferences.recuperarFecha() == null) {
+                    preferences.guardarFecha(fecha)
+                    val db = AppDatabase.getDatabase(context)
+                    val peliculaDao = db?.peliculaDao()
+                    GlobalScope.launch(Dispatchers.IO) {
+                        peliculaDao?.deleteAll()
+                        response.body()?.forEach { it -> it.idroom = it.id!! }
+                        peliculaDao?.insertAll(response.body())
+                    }
+                }
 
                 if (response.code() < 200 || response.code() > 299 || peliculas == null) {
                     Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
@@ -124,6 +151,7 @@ class PeliculasActivity : AppCompatActivity() {
                         ValidacionesUtils().reiniciarApp(context)
                     }
                 } else {
+                    binding.fabAnadirPelicula.show()
                     //Creo los componentes que necesita el RecyclerView
                     val layoutManager = LinearLayoutManager(context)
                     val adapter = ListaPeliculasAdapter(peliculas, context)
@@ -132,12 +160,10 @@ class PeliculasActivity : AppCompatActivity() {
                     binding.rvListaPeliculas.adapter = adapter
                     binding.rvListaPeliculas.layoutManager = layoutManager
                 }
-
             }
 
             override fun onFailure(call: Call<List<Pelicula>>, t: Throwable) {
                 Toast.makeText(context, R.string.toast_error, Toast.LENGTH_SHORT).show()
-                Log.d("prueba", t.message.toString())
             }
         })
     }

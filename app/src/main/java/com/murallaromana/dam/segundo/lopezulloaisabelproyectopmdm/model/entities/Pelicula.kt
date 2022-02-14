@@ -23,17 +23,8 @@ data class Pelicula(
     @SerializedName("imageUrl")var imagen: String?,
     @SerializedName("trailerUrl")var trailer : String?
 ) : Serializable {
-
     @PrimaryKey
     @ColumnInfo (name="idroom")
-
     @Transient var idroom: String = ""
-
-    fun obtenerId(): String? {
-        if (id == null)
-            return idroom
-        else
-            return id
-    }
 }
 
