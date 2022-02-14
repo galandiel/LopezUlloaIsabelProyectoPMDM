@@ -19,13 +19,14 @@ añadir más películas.
 - Picasso
 - Cardview
 - Retrofit
+- Room
 
 #### Imágenes de la App
 
 #### Pantalla de inicio:
 ![Imagen pantalla login](https://github.com/galandiel/LopezUlloaIsabelProyectoPMDM/blob/main/images/inicio.png)
 
-### Pantalla de la lista de películas:
+### Pantalla de lista de películas:
 ![Imagen pantalla películas](https://github.com/galandiel/LopezUlloaIsabelProyectoPMDM/blob/main/images/listaPeliculas.png)
 
 ### Pantalla de detalles de la película:
